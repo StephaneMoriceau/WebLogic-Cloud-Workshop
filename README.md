@@ -25,18 +25,33 @@ Note: keep a copy [red]
 2. Encode the password in base64 format
 
   For example, on Linux:
+  
     echo -n 'Your_Password' | base64
 
 3. Keep a copy of the encoded password
 
-# 3. Install terraform and terraform OCI provider on your laptop
+# 3. Create an SSH Key 
 
-# 4. Clone this github on your laptop
+Create a secure shell (SSH) key pair so that you can access the compute instances in your Oracle WebLogic Server domains.
 
-# 5. Update the terreform configuration file with the specific of your environment
+A key pair consists of a public key and a corresponding private key. When you create a domain using Oracle WebLogic Cloud, you specify the public key. You then access the compute instances from an SSH client using the private key.
 
-# 6. Create the required infrasture to provision a WebLogic Cloud domain from the OCI Marketplace
+On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
 
-# 7. Provision a WebLogic Cloud domain from the OCI Markeplace
+ssh-keygen -b 2048 -t rsa -f mykey
+
+cat mykey.pub
+
+On a Windows platform, you can use the PuTTY Key Generator utility. See Creating a Key Pair (https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
+
+# 4. Install terraform and terraform OCI provider on your laptop
+
+# 5. Clone this github on your laptop
+
+# 6. Update the terraform configuration file with the specific of your environment
+
+# 7. Create the required infrasture to provision a WebLogic Cloud domain from the OCI Marketplace
+
+# 8. Provision a WebLogic Cloud domain from the OCI Markeplace
 
 
