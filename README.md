@@ -48,12 +48,16 @@ On a Windows platform, you can use the PuTTY Key Generator utility. See Creating
 
 # 4. Install terraform and terraform OCI provider on your laptop
 
+
 # 5. Clone this github on your laptop
+
 
 # 6. Update the terraform configuration file with the specific of your environment
 
-# 7. Create the required infrasture to provision a WebLogic Cloud domain from the OCI Marketplace
 
-# 8. Provision a WebLogic Cloud domain from the OCI Markeplace
+# 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
+
+
+# 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
 
 
