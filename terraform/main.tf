@@ -32,7 +32,7 @@ resource "oci_identity_policy" "WLS_Policy" {
     compartment_id = oci_identity_compartment.WLS_Compartment.id
     description = "Required for WebLogic Cloud provisioning"
     name = var.Policy_name
-    statements = ["Allow dynamic-group WLS_Dynamic_Group to use keys in compartment WLS_Compartment2"]
+    statements = ["Allow dynamic-group WLS_Dynamic_Group to use keys in compartment WLS_Compartment"]
 }
 
 
