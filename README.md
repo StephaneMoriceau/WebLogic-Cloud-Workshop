@@ -77,6 +77,17 @@ git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git  -b 2.
 
 # 6. Update the terraform configuration file with the specific of your environment
 
+1. Copy the terraform configuration variables example file
+
+```
+cd terraform
+
+cp terraform.tfvars.example terraform.tfvars
+```
+
+2. Update the terraform.tfvars file with the specific of your environment
+
+
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
 
