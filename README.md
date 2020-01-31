@@ -23,8 +23,9 @@ Note: keep a copy [red]
 1. Choose a password with the following requirements
 
 2. Encode the password in base64 format
-For example, on Linux:
-echo -n 'Your_Password' | base64
+
+  For example, on Linux:
+  echo -n 'Your_Password' | base64
 
 3. Keep a copy of the encoded password
 
