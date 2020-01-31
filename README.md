@@ -85,8 +85,24 @@ cd terraform
 cp terraform.tfvars.example terraform.tfvars
 ```
 
-2. Update the terraform.tfvars file with the specific of your environment
+2. Open the terraform.tfvars file
 
+Use your preferred editor and open the file terraform.tfvars
+
+3. Update the terraform.tfvars file with the specific of your environment
+
+Update the following variables with the values your recorded earlier in the lab
+
+- api_fingerprint     
+- api_private_key_path 
+- api_private_key_password 
+- compartment_id       
+- tenancy_id           
+- user_id
+
+- region
+
+- Base64_Password
 
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
