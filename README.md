@@ -31,8 +31,10 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 2. Encode the password in base64 format
 
   For example, on Linux:
-  
-    echo -n 'Your_Password' | base64
+
+```
+echo -n 'Your_Password' | base64
+```
 
 ---
 
@@ -48,9 +50,11 @@ A key pair consists of a public key and a corresponding private key. When you cr
 
 On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
 
-    ssh-keygen -b 2048 -t rsa -f mykey
+```
+ssh-keygen -b 2048 -t rsa -f mykey
     
-    cat mykey.pub  
+cat mykey.pub  
+```
 
 ---
 
