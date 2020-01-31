@@ -25,7 +25,7 @@ Note: keep a copy [red]
 2. Encode the password in base64 format
 
   For example, on Linux:
-  echo -n 'Your_Password' | base64
+    echo -n 'Your_Password' | base64
 
 3. Keep a copy of the encoded password
 
