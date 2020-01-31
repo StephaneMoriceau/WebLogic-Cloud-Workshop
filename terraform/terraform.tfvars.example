@@ -20,7 +20,7 @@ oci_base_general = {
 Base64_Password = "bWlu..."
 
 
-# Infrastructure parameters (if you change either Compartment_name or Dynamic_Group_name update the statement accordingly in the Create Policy for the Dynamic group in main.tf)
+# Infrastructure parameters (if you change either Compartment_name or Dynamic_Group_name update the statement accordingly in the 'Create Policy for the Dynamic group' section in main.tf)
 
 Compartment_name = "WLS_Compartment"
 Dynamic_Group_name = "WLS_Dynamic_Group"
