@@ -1,8 +1,10 @@
 # WebLogic-Cloud-Workshop
 Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 
+# 0. Provision a Oracle Cloud free trial instance
+
 # 1. Required Keys and OCIDs
-Please execute the following 3 steps documented in https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm:
+Please execute the following 3 steps as documented in https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm:
 
 1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. You can skip this if the user exists already.
 
@@ -12,10 +14,19 @@ Please execute the following 3 steps documented in https://docs.cloud.oracle.com
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
+Note: keep a copy [red]
+
 3. Upload the public key from the key pair in the Console
 
-# 2. Encrypt you WebLogic administrator password
+# 2. Encode the WebLogic administrator password in base64 format
 
+1. Choose a password with the following requirements
+
+2. Encode the password in base64 format
+For example, on Linux:
+echo -n 'Your_Password' | base64
+
+3. Keep a copy of the encoded password
 
 # 3. Install terraform and terraform OCI provider on your laptop
 
