@@ -1,10 +1,12 @@
 # WebLogic-Cloud-Workshop
 Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 
-# 0. Provision a Oracle Cloud free trial instance
+# 0. Prerequisites
+
+- [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of January, 2019).
 
 # 1. Required Keys and OCIDs
-Please execute the following 3 steps as documented in https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm:
+Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
 
 1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. You can skip this if the user exists already.
 
@@ -14,9 +16,13 @@ Please execute the following 3 steps as documented in https://docs.cloud.oracle.
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
-Note: keep a copy [red]
-
 3. Upload the public key from the key pair in the Console
+
+---
+
+**Note:** Keep a record of: **Fingerptint of the public key**, **Tenancy's OCID**, **user's OCID**, and **Path of the private key on your desktop** for later use in this lab.
+
+---
 
 # 2. Encode the WebLogic administrator password in base64 format
 
@@ -28,7 +34,11 @@ Note: keep a copy [red]
   
     echo -n 'Your_Password' | base64
 
-3. Keep a copy of the encoded password
+---
+
+**Note:** Keep a record ofof the output of the above **'echo -n 'Your_Password' | base64'** command for later use in this lab.
+
+---
 
 # 3. Create an SSH Key 
 
@@ -39,18 +49,27 @@ A key pair consists of a public key and a corresponding private key. When you cr
 On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
 
     ssh-keygen -b 2048 -t rsa -f mykey
+    
+    cat mykey.pub  
 
-    cat mykey.pub
+---
 
-Note: Keep a copy of the value of mykey.pub
+**Note:** Keep a record of the output of the above **'cat mykey.pub'** command for later use in this lab.
 
-On a Windows platform, you can use the PuTTY Key Generator utility. See Creating a Key Pair (https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
+---
 
-# 4. Install terraform and terraform OCI provider on your laptop
+On a Windows platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
 
+# 4. Install terraform and terraform OCI provider on your desktop
+
+Download and install terraform and the OCI Terraform Provider as in [Getting Started with the Terraform Provider](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm)
 
 # 5. Clone this github on your laptop
 
+Clone the WebLogic Cloud Worshop git repository to your desktop.
+```
+git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git  -b 2.0
+```
 
 # 6. Update the terraform configuration file with the specific of your environment
 
