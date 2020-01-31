@@ -126,12 +126,12 @@ Key_name = "WLS_Key"
 
 Update the following variables with the values your recorded earlier in the lab
 
-- api_fingerprint     
-- api_private_key_path 
-- api_private_key_password 
+- api_fingerprint   (section #1)
+- api_private_key_path   (section #1) 
+- api_private_key_password   (section #1) 
 - compartment_id       
-- tenancy_id           
-- user_id
+- tenancy_id   (section #1)           
+- user_id   (section #1)
 
 - region
 ---
@@ -141,7 +141,7 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password
+- Base64_Password   (section #2)
 
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
