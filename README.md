@@ -195,15 +195,20 @@ key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkvazr75dmu20000000000
 
 # 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
 
-Launch a Stack
+**Launch a Stack**
+
+
 Sign in to Marketplace and specify initial stack information.
 
-Sign in to the Oracle Cloud Infrastructure Console.
-Click the navigation menu Navigation Menu icon and select Marketplace.
-Select an Oracle WebLogic Cloud application for the Oracle WebLogic Server edition that you want to provision.
-WebLogic Cloud Standard Edition
-WebLogic Cloud Enterprise Edition
-WebLogic Cloud Suite
+1. Sign in to the Oracle Cloud Infrastructure Console.
+
+2. Click the navigation menu Navigation Menu icon and select Marketplace.
+
+3. Select an Oracle WebLogic Cloud application for the Oracle WebLogic Cloud Enterprise Edition edition that you want to provision.
+- WebLogic Cloud Standard Edition
+- WebLogic Cloud Enterprise Edition
+- WebLogic Cloud Suite
+
 Select a version of Oracle WebLogic Server 12c.
 If there's more than one 12c patch, the latest patch is the default.
 Select the compartment in which to create the stack.
