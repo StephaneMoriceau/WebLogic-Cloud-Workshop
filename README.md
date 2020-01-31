@@ -38,9 +38,9 @@ A key pair consists of a public key and a corresponding private key. When you cr
 
 On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
 
-ssh-keygen -b 2048 -t rsa -f mykey
+  ssh-keygen -b 2048 -t rsa -f mykey
 
-cat mykey.pub
+  cat mykey.pub
 
 On a Windows platform, you can use the PuTTY Key Generator utility. See Creating a Key Pair (https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
 
