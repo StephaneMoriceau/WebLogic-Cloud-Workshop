@@ -213,7 +213,7 @@ Category: Application Development
 
 ![alt text](images/image050.png)
 
-3. Choose WebLogic Cloud Enterprise Edition BYOL; This brings you to the Stack Overview page:
+3. Choose **WebLogic Cloud Enterprise Edition BYOL**; This brings you to the Stack Overview page:
 
 ![alt text](images/image060.png)
 
@@ -228,7 +228,7 @@ By default the stack compartment is used to contain the domain compute instances
 
 6. Select the Terms and Restrictions check box, and then click Launch Stack.
 
-![alt text](images/image061.png)
+![alt text](images/image062.png)
 
 The Create Stack wizard is displayed.
 
