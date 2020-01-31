@@ -134,6 +134,12 @@ Update the following variables with the values your recorded earlier in the lab
 - user_id
 
 - region
+---
+
+**Note:** To confirm your home region: Open the Console, open the Region menu, and then click Manage Regions.
+A list of the regions offered by Oracle Cloud Infrastructure is displayed. Select your **home region code** e.g. us-ashburn-1, us-phoenix-1.
+
+---
 
 - Base64_Password
 
