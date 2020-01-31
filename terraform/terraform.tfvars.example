@@ -11,7 +11,7 @@ oci_base_identity = {
 
 oci_base_general = {
   label_prefix = "base"
-  region       = "us-MYREGION-1"
+  region       = "XX-MYREGION-Y"
 }
 
 
