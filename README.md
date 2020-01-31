@@ -197,47 +197,81 @@ key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkvazr75dmu20000000000
 
 **Launch a Stack**
 
-
 Sign in to Marketplace and specify initial stack information.
 
 1. Sign in to the Oracle Cloud Infrastructure Console.
 
-2. Click the navigation menu Navigation Menu icon and select Marketplace.
+2. Click the ![alt text](images/main_menu_icon.png) Navigation Menu icon and select Marketplace.
 
-3. Select an Oracle WebLogic Cloud application for the Oracle WebLogic Cloud Enterprise Edition edition that you want to provision.
-- WebLogic Cloud Standard Edition
-- WebLogic Cloud Enterprise Edition
-- WebLogic Cloud Suite
+![alt text](images/image040.png)
 
-Select a version of Oracle WebLogic Server 12c.
+3. You can choose to browser-search for WebLogic Cloud, or for faster search you can apply the filters:
+
+Type: Stack
+Publisher: Oracle
+Category: Application Development
+
+![alt text](images/image050.png)
+
+3. Choose WebLogic Cloud Enterprise Edition BYOL; This brings you to the Stack Overview page:
+
+![alt text](images/image060.png)
+
+4. Select a version of Oracle WebLogic Server 12c.
 If there's more than one 12c patch, the latest patch is the default.
-Select the compartment in which to create the stack.
+
+5. Select the compartment **"WLS_Compartment"** in which we will create the stack.
+
+![alt text](images/image061.png)
+
 By default the stack compartment is used to contain the domain compute instances and network resources. If later on you specify a network compartment on the Configure Variables page of the Create Stack wizard, then only the compute instances are created in the stack compartment that you select here.
-Select the Terms and Restrictions check box, and then click Launch Stack.
+
+6. Select the Terms and Restrictions check box, and then click Launch Stack.
+
+![alt text](images/image061.png)
+
 The Create Stack wizard is displayed.
-Specify Stack Information
+
+
+**Specify Stack Information**
+
 Specify the name, description, and tags for the stack.
 
-On the Stack Information page of the Create Stack wizard, enter a name for your stack.
-Enter a description for the stack (optional).
-Specify one or more tags for your stack (optional).
-Click Next.
+1. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
+
+2. Enter a description for the stack (optional).
+
+3. Specify one or more tags for your stack (optional).
+
+4. Click Next.
+
 The Configure Variables page opens.
-Configure WebLogic Instance Parameters
+
+**Configure WebLogic Instance Parameters**
+
 Specify the parameters needed to configure the WebLogic instance domain.
 
-In the WebLogic Server Instance section, enter the resource name prefix.
+1. In the WebLogic Server Instance section, enter the resource name prefix.
 The maximum character length is 8.
 This prefix is used by all the created resources.
-Select the WebLogic Server shape for the compute instances.
+
+2. Select the WebLogic Server shape for the compute instances.
 Only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x
-Enter the SSH public key.
-Select the availability domain where you want to create the domain.
-Select the number of managed servers you want to create. You can specify up to 4 if you're using WebLogic Server 11g Standard Edition. For all other editions and versions, you can specify up to 8 nodes.
+
+3. Enter the SSH public key.
+
+4. Select the availability domain where you want to create the domain.
+
+5. Select the number of managed servers you want to create. You can specify up to 4 if you're using WebLogic Server 11g Standard Edition. For all other editions and versions, you can specify up to 8 nodes.
+
 The managed servers will be members of a cluster, unless you selected WebLogic Server Standard Edition.
-Enter a user name for the WebLogic Server administrator.
-Enter an encrypted password for the WebLogic Server administrator. The password must be encrypted. See Create an Encryption Key.
-Configure Advanced Parameters for a Domain
+
+6. Enter a user name for the WebLogic Server administrator.
+
+7. Enter an encrypted password for the WebLogic Server administrator. The password must be encrypted. 
+
+**Configure Advanced Parameters for a Domain**
+
 You can optionally specify additional parameters by selecting WLS Instance Advanced Configuration on the Configure Variables page of the Create Stack wizard.
 
 Select WLS Instance Advanced Configuration if you want to change the default port numbers, or remove the sample application. Cluster-related parameters are not applicable if you selected WebLogic Server Standard Edition.
