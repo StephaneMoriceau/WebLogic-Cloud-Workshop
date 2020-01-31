@@ -33,12 +33,12 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
   For example, on Linux:
 
 ```
-echo -n 'Your_Password' | base64
+$ echo -n 'Your_Password' | base64
 ```
 
 ---
 
-**Note:** Keep a record ofof the output of the above **'echo -n 'Your_Password' | base64'** command for later use in this lab.
+**Note:** Keep a record of the output of the above **'echo -n 'Your_Password' | base64'** command for later use in this lab.
 
 ---
 
@@ -51,9 +51,9 @@ A key pair consists of a public key and a corresponding private key. When you cr
 On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
 
 ```
-ssh-keygen -b 2048 -t rsa -f mykey
+$ ssh-keygen -b 2048 -t rsa -f mykey
     
-cat mykey.pub  
+$ cat mykey.pub  
 ```
 
 ---
@@ -80,9 +80,9 @@ git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git  -b 2.
 1. Copy the terraform configuration variables example file
 
 ```
-cd terraform
+$ cd terraform
 
-cp terraform.tfvars.example terraform.tfvars
+$ cp terraform.tfvars.example terraform.tfvars
 ```
 
 2. Open the terraform.tfvars file
@@ -143,8 +143,54 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 - Base64_Password   (section #2)
 
+4. Save terraform.tfvars
+
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
+
+1. Initialize Terraform:
+
+```
+$ terraform init
+```
+
+2. View what Terraform plans do before actually doing it:
+
+```
+$ terraform plan
+```
+
+3. Use Terraform to Provision resources:
+
+```
+$ terraform apply
+```
+
+The result has to be similar:
+
+```
+oci_kms_key.WLS_Key: Still creating... [1m10s elapsed]
+oci_kms_key.WLS_Key: Still creating... [1m20s elapsed]
+oci_kms_key.WLS_Key: Still creating... [1m30s elapsed]
+oci_kms_key.WLS_Key: Creation complete after 1m39s [id=ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkv0000000000u2km2f4
+oci_kms_encrypted_data.WLS_Encrypted_Data: Creating...
+oci_kms_encrypted_data.WLS_Encrypted_Data: Creation complete after 2s [id=]
+
+Apply complete! Resources: 3 added, 0 changed, 2 destroyed.
+
+Outputs:
+
+Encrypted_data = IcsoJqtmCj5IAPgzF+WYqQj7arZDn8Cq0MDX6mm7ChK3000000000000WJcMcUgAAAAA=
+compartment_id = ocid1.compartment.oc1..aaaaaaaayamtcvxtx32y3ex3000000000000000hlybyag3ibeza
+cryptographic_endpoint = https://a500000000000w-crypto.kms.us-phoenix-1.oraclecloud.com
+key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkvazr75dmu20000000000f5tskaozewo6kea
+```
+
+---
+
+**Note:** Keep a record ofof the output of the above **Encrypted_data**, **cryptographic_endpoint**, and **key_OCI** for later use in this lab.
+
+---
 
 
 # 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
