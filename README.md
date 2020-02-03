@@ -267,7 +267,7 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 6. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-7. Enter an encrypted password for the WebLogic Server administrator. **Enter Encrypted-data from section 7**
+7. Enter an encrypted password for the WebLogic Server administrator. **Enter the value Encrypted-data in the output of the terraform apply commend in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
 **Configure Advanced Parameters for a Domain**
 
