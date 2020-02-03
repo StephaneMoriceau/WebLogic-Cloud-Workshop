@@ -75,7 +75,7 @@ Clone the WebLogic Cloud Worshop git repository to your desktop.
 git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 ```
 
-# 6. Update the terraform configuration file with the specific of your environment
+# 6. Update the terraform configuration file with the specifics of your environment
 
 1. Copy the terraform configuration variables example file
 
@@ -172,7 +172,7 @@ The result has to be similar:
 oci_kms_key.WLS_Key: Still creating... [1m10s elapsed]
 oci_kms_key.WLS_Key: Still creating... [1m20s elapsed]
 oci_kms_key.WLS_Key: Still creating... [1m30s elapsed]
-oci_kms_key.WLS_Key: Creation complete after 1m39s [id=ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkv0000000000u2km2f4
+oci_kms_key.WLS_Key: Creation complete after 1m39s [id=ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
 oci_kms_encrypted_data.WLS_Encrypted_Data: Creating...
 oci_kms_encrypted_data.WLS_Encrypted_Data: Creation complete after 2s [id=]
 
@@ -180,10 +180,10 @@ Apply complete! Resources: 3 added, 0 changed, 2 destroyed.
 
 Outputs:
 
-Encrypted_data = IcsoJqtmCj5IAPgzF+WYqQj7arZDn8Cq0MDX6mm7ChK3000000000000WJcMcUgAAAAA=
-compartment_id = ocid1.compartment.oc1..aaaaaaaayamtcvxtx32y3ex3000000000000000hlybyag3ibeza
-cryptographic_endpoint = https://a500000000000w-crypto.kms.us-phoenix-1.oraclecloud.com
-key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqljrhfywkf5hkvazr75dmu20000000000f5tskaozewo6kea
+Encrypted_data = IcsoJqtmC[..........]WJcMcUgAAAAA=
+compartment_id = ocid1.compartment.oc1..aaaaaaaa[..........]hlybyag3ibeza
+cryptographic_endpoint = https://a5[..........]w-crypto.kms.us-phoenix-1.oraclecloud.com
+key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
 ```
 
 ---
