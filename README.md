@@ -232,88 +232,130 @@ By default the stack compartment is used to contain the domain compute instances
 
 The Create Stack wizard is displayed.
 
-7. Specify Stack Information
+**Specify Stack Information**
 
 ![alt text](images/image070.png)
 
 Specify the name, description, and tags for the stack.
-a. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
 
-b. Enter a description for the stack (optional).
+8. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
 
-c. Specify one or more tags for your stack (optional).
+9. Enter a description for the stack (optional).
 
-d. Click Next.
+10. Specify one or more tags for your stack (optional).
+
+11. Click Next.
 
 The Configure Variables page opens.
 
-8. Configure WebLogic Instance Parameters
+**Configure WebLogic Instance Parameters**
 
 ![alt text](images/image071.png)
 
 Specify the parameters needed to configure the WebLogic instance domain.
 
-a. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
+12. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
 This prefix is used by all the created resources.)
 
-b. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
+13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-c. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
+14. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
 
-d. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
+15. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
-e. Select the number of managed servers you want to create. **Select 2**
+16. Select the number of managed servers you want to create. **Select 2**
 The managed servers will be members of a cluster, unless you selected WebLogic Server Standard Edition.
 
-f. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
+17. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-g. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
-9. Configure Advanced Parameters for a Domain
+**Configure Advanced Parameters for a Domain**
 
 ![alt text](images/image072.png)
 
-a. Don't change / select WebLogic Server Instance Advanced Configuration
+19. Don't change / select WebLogic Server Instance Advanced Configuration
 
-b. Network Compartment: Select **WLS_compartment**
+20. Network Compartment: Select **WLS_compartment**
 
-c. VCN Strategy: Select **Create New VCN**
+21. VCN Strategy: Select **Create New VCN**
 
-d. WLS Network: Enter **WLSCloudVCN** 
+22. WLS Network: Enter **WLSCloudVCN** 
 
-e. WLS Network CIDR: Keep the default
+23. WLS Network CIDR: Keep the default
 
-f. Subnet Strategy: Select **Create New Subnet**
+24. Subnet Strategy: Select **Create New Subnet**
 
-g. Subnet Type: Keep the default **Use Public Subnet** selection.
+25. Subnet Type: Keep the default **Use Public Subnet** selection.
 
 ![alt text](images/image073.png)
 
-h. Subnet span: Select **Regional Subnet**
+26. Subnet span: Select **Regional Subnet**
 
-i. Select **Provision Load Balancer**
+27. Select **Provision Load Balancer**
 
-j. LB Network CIDR: Keep the default
+28. LB Network CIDR: Keep the default
 
-k. LB Shape: Select **400Mbps**
+29. LB Shape: Select **400Mbps**
 
-l. Do **NOT** select **Prepare Load Balancer for https**
+30. Do **NOT** select **Prepare Load Balancer for https**
 
-m. Do **NOT** select **Enable authentification using Identity Cloud Service**
+31. Do **NOT** select **Enable authentification using Identity Cloud Service**
 
 ![alt text](images/image074.png)
 
-n. Database Strategy: keep the default **No Database**
+32. Database Strategy: keep the default **No Database**
 
-o. Key Management Service Key ID: Enter the value Key Management Service Configuration section of the Configure Variables page, enter the OCID of your encryption key.
+33. Key Management Service Key ID: Enter the value Key Management Service Configuration section of the Configure Variables page, enter the OCID of your encryption key.
 
-p. Key Management Service Endpoint: Enter the endpoint URL for the vault that contains your encryption key.
+34. Key Management Service Endpoint: Enter the endpoint URL for the vault that contains your encryption key.
 
-q. At the bottom of the Configure Variables page, click **Next**
+35. At the bottom of the Configure Variables page, click **Next**
 
 You are now ready to create the stack.
 
-r. Review the Stack configuration and Click **Create**
+37. Review the Stack configuration and Click **Create**
+
+![alt text](images/image075.png)
+
+38. A Stack Job is being run and our WLS Server is being provisioned
+
+
+
+39: While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
+
+
+
+
+40. After a while (~ 15 minutes), the Job should complete with success
+
+
+
+
+41. We can check the Outputs section of Job Resources and check for two important values:
+
+- Sample Application URL
+- WebLogic Server Administration Console
+
+
+
+42. Let's check the WLS admin console of the newly created WebLogic Server; as we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated
+Instead of http://< public IP >:7001/console, open https://< public IP >:7002/console; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change http with https and 7001 port with 7002 port)
+Login with weblogic username and the plain text provided password; check the weblogic_password_plaintext.txt file
+
+
+43. We can see that our domain has one admin server and two managed servers:
+
+
+44. We can check the Compute Instances to see what has been provisioned; From general hamburger menu choose Core Infrastructure -> Compute -> Instances:
+
+
+45. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
+
+
+**Congratulations! Your WLS domain is up & running!**
+
+
 
 
 
