@@ -188,7 +188,10 @@ key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
 
 ---
 
-**Note:** Keep a record ofof the output of the above **Encrypted_data**, **cryptographic_endpoint**, and **key_OCI** for later use in this lab.
+**Note:** Keep a record ofof the output of the above:
+- **Encrypted_data**, 
+- **cryptographic_endpoint**, and 
+- **key_OCI** for later use in this lab.
 
 ---
 
@@ -268,7 +271,7 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 17. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
 **Configure Advanced Parameters for a Domain**
 
@@ -306,9 +309,9 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 32. Database Strategy: keep the default **No Database**
 
-33. Key Management Service Key ID: Enter the value Key Management Service Configuration section of the Configure Variables page, enter the OCID of your encryption key.
+33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
-34. Key Management Service Endpoint: Enter the endpoint URL for the vault that contains your encryption key.
+34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
 35. At the bottom of the Configure Variables page, click **Next**
 
