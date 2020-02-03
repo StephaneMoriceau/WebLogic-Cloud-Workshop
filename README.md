@@ -126,12 +126,12 @@ Key_name = "WLS_Key"
 
 Update the following variables with the values your recorded earlier in the lab
 
-- api_fingerprint   [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_path   (section #1) 
-- api_private_key_password   (section #1) 
+- api_fingerprint            [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_path       [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_password   [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
 - compartment_id       
-- tenancy_id   (section #1)           
-- user_id   (section #1)
+- tenancy_id                 [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
+- user_id                    [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 
 - region
 ---
@@ -141,7 +141,7 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password   (section #2)
+- Base64_Password            [(section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 4. Save terraform.tfvars
 
