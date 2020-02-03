@@ -316,20 +316,23 @@ You are now ready to create the stack.
 
 37. Review the Stack configuration and Click **Create**
 
+
 ![alt text](images/image075.png)
+
 
 38. A Stack Job is being run and our WLS Server is being provisioned
 
+![alt text](images/image180.png)
 
 
 39: While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
 
-
+![alt text](images/image190.png)
 
 
 40. After a while (~ 15 minutes), the Job should complete with success
 
-
+![alt text](images/image200.png)
 
 
 41. We can check the Outputs section of Job Resources and check for two important values:
@@ -337,20 +340,33 @@ You are now ready to create the stack.
 - Sample Application URL
 - WebLogic Server Administration Console
 
+![alt text](images/image210.png)
 
 
-42. Let's check the WLS admin console of the newly created WebLogic Server; as we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated
-Instead of http://< public IP >:7001/console, open https://< public IP >:7002/console; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change http with https and 7001 port with 7002 port)
+42. Let's check the WLS admin console of the newly created WebLogic Server
+
+- As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
+- Instead of http://< public IP >:7001/console, open https://< public IP >:7002/console; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change http with https and 7001 port with 7002 port)
 Login with weblogic username and the plain text provided password; check the weblogic_password_plaintext.txt file
+
+![alt text](images/image220.png)
 
 
 43. We can see that our domain has one admin server and two managed servers:
 
+![alt text](images/image230.png)
 
-44. We can check the Compute Instances to see what has been provisioned; From general hamburger menu choose Core Infrastructure -> Compute -> Instances:
+
+44. We can check the Compute Instances to see what has been provisioned 
+
+From general hamburger menu choose Core Infrastructure -> Compute -> Instances:
+
+![alt text](images/image240.png)
 
 
 45. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
+
+![alt text](images/image250.png)
 
 
 **Congratulations! Your WLS domain is up & running!**
