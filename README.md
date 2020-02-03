@@ -126,12 +126,12 @@ Key_name = "WLS_Key"
 
 Update the following variables with the values your recorded earlier in the lab
 
-- api_fingerprint            [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_path       [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_password   [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
+- api_fingerprint            [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_path       [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_password   [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
 - compartment_id             (use the Tenancy OCID as per [section #1](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))
-- tenancy_id                 [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
-- user_id                    [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- tenancy_id                 [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
+- user_id                    [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 
 - region (see note below)
 ---
@@ -141,7 +141,7 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password            [(section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
+- Base64_Password            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 4. Save terraform.tfvars
 
@@ -258,17 +258,16 @@ This prefix is used by all the created resources.)
 
 2. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-3. Enter the SSH public key.
+3. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
 
-4. Select the availability domain where you want to create the domain.
+4. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
-5. Select the number of managed servers you want to create. You can specify up to 4 if you're using WebLogic Server 11g Standard Edition. For all other editions and versions, you can specify up to 8 nodes.
-
+5. Select the number of managed servers you want to create. **Select 2**
 The managed servers will be members of a cluster, unless you selected WebLogic Server Standard Edition.
 
-6. Enter a user name for the WebLogic Server administrator.
+6. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-7. Enter an encrypted password for the WebLogic Server administrator. The password must be encrypted. 
+7. Enter an encrypted password for the WebLogic Server administrator. **Enter Encrypted-data from section 7**
 
 **Configure Advanced Parameters for a Domain**
 
