@@ -253,89 +253,83 @@ The Configure Variables page opens.
 
 Specify the parameters needed to configure the WebLogic instance domain.
 
-1. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
+a. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
 This prefix is used by all the created resources.)
 
-2. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
+b. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-3. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
+c. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
 
-4. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
+d. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
-5. Select the number of managed servers you want to create. **Select 2**
+e. Select the number of managed servers you want to create. **Select 2**
 The managed servers will be members of a cluster, unless you selected WebLogic Server Standard Edition.
 
-6. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
+f. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-7. Enter an encrypted password for the WebLogic Server administrator. **Enter the value Encrypted-data in the output of the terraform apply commend in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+g. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
-**Configure Advanced Parameters for a Domain**
+9. Configure Advanced Parameters for a Domain
 
-You can optionally specify additional parameters by selecting WLS Instance Advanced Configuration on the Configure Variables page of the Create Stack wizard.
+![alt text](images/image072.png)
 
-Select WLS Instance Advanced Configuration if you want to change the default port numbers, or remove the sample application. Cluster-related parameters are not applicable if you selected WebLogic Server Standard Edition.
+a. Don't change / select WebLogic Server Instance Advanced Configuration
 
-Configure Network Parameters
-Define the Virtual Cloud Network (VCN) and subnet configuration for the basic domain. For this basic domain, the domain instance attaches to a public subnet.
+b. Network Compartment: Select **WLS_compartment**
 
-In the WebLogic Server Network section of the Configure Variables page, select the Network Compartment in which to create the network resources for this domain.
-If you don't specify a network compartment, then all the network resources and the domain compute instances are created in the stack compartment that you selected earlier upon launching the stack. Select a network compartment if you want the network resources to be in a different compartment than the compute instances.
-Select a Virtual Cloud Network (VCN) strategy:
-Select Use Existing VCN, and then select the name of the existing VCN.
-Select Create New VCN, and then enter a name and CIDR for the new VCN.
-Select one of the following subnet strategies:
-Select Use Existing Subnet.
-Select Create New Subnet.
-Note:If you're creating a new VCN, you can only create a new subnet.
-Keep the default Use Public Subnet selection.
-Select the subnet span:
-Regional Subnet. The subnet has resources in a region's multiple availability domains, and is not specific to any one availability domain.
-AD Specific Subnet. The subnet is defined in one particular availability domain.
-For the WebLogic Server subnet, specify one of the following:
-If you want to use an existing regional subnet, then choose the name of an existing regional subnet from the list of regional and availability domain-specific subnets.
-If you want to use an existing availability domain-specific subnet, choose the name of an existing availability domain-specific subnet from the list of regional and availability domain-specific subnets.
-If you are creating a new regional or availability domain-specific subnet, specify a CIDR for the new subnet.
-Configure a Load Balancer
-You have the option to create a load balancer to distribute application traffic to the WebLogic Managed Servers.
+c. VCN Strategy: Select **Create New VCN**
 
-To create a load balancer:
+d. WLS Network: Enter **WLSCloudVCN** 
 
-Select Provision Load Balancer.
-Configure the load balancer network.
-If you chose to use an existing regional subnet for WebLogic Server, then select an existing regional subnet from the list of regional and availability domain-specific subnets. A load balancer can have only one regional subnet, which is shared between both nodes.
-If you chose to create a regional subnet for WebLogic Server, then specify a CIDR for the new load balancer subnet.
-If you chose to create availability domain-specific subnets for WebLogic Server, then select an availability domain for the load balancer's first node, and the CIDR for the first subnet, Load Balancer Subnet CIDR. Then select an availability domain for the load balancer's second node, and the CIDR for the second subnet, Load Balancer Subnet 2 CIDR.
-Select a load balancer shape. The default is 400 Mbps.
-Select Prepare Load Balancer for HTTPS if you want the load balancer to listen on the HTTPS port. You must add your SSL certificate to the load balancer after creating the domain.
-Configure WebLogic Authentication
-You have the option to use Oracle Identity Cloud Service to authenticate application users for your domain.
+e. WLS Network CIDR: Keep the default
 
-This configuration is only available if the domain meets these requirements:
+f. Subnet Strategy: Select **Create New Subnet**
 
-Running WebLogic Server 12c
-Includes a load balancer
-To use Oracle Identity Cloud Service for authentication:
+g. Subnet Type: Keep the default **Use Public Subnet** selection.
 
-Select Enable Authentication Using Identity Cloud Service.
-Enter your Oracle Identity Cloud Service (IDCS) tenant name, which is also referred to as the instance ID.
-This ID is typically found in the URL that you use to access Oracle Identity Cloud Service, and has the format idcs-<GUID>.
-Enter the client ID and encrypted client secret of an existing confidential application in this Oracle Identity Cloud Service instance.
-The client secret must be encrypted.
-If necessary, you can override the default domain name and port that you use to access Oracle Identity Cloud Service, or the default port that is used for the App Gateway software appliance.
-Configure Database Parameters
-A basic WebLogic Server 12c domain does not require a database.
+![alt text](images/image073.png)
 
-In the Database section of the Configure Variables page, for Database Strategy, select No Database if you are creating a basic domain.
+h. Subnet span: Select **Regional Subnet**
 
-To create a domain that uses an existing database, see Create a JRF-Enabled Domain. All Oracle WebLogic Server 11g domains include the Java Required Files (JRF) components and require a database.
+i. Select **Provision Load Balancer**
 
-Specify the Key Management Service Configuration
-Specify information that enables Oracle WebLogic Cloud to decrypt the encrypted password for your domain.
+j. LB Network CIDR: Keep the default
 
-In the Key Management Service Key ID field of the Key Management Service Configuration section of the Configure Variables page, enter the OCID of your encryption key.
-In the Key Management Service Endpoint field, enter the endpoint URL for the vault that contains your encryption key.
-At the bottom of the Configure Variables page, click Next.
+k. LB Shape: Select **400Mbps**
+
+l. Do **NOT** select **Prepare Load Balancer for https**
+
+m. Do **NOT** select **Enable authentification using Identity Cloud Service**
+
+![alt text](images/image074.png)
+
+n. Database Strategy: keep the default **No Database**
+
+o. Key Management Service Key ID: Enter the value Key Management Service Configuration section of the Configure Variables page, enter the OCID of your encryption key.
+
+p. Key Management Service Endpoint: Enter the endpoint URL for the vault that contains your encryption key.
+
+q. At the bottom of the Configure Variables page, click **Next**
+
 You are now ready to create the stack.
+
+r. Review the Stack configuration and Click **Create**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Configure Tags
 Oracle WebLogic Cloud can optionally assign tags to the resources (compute, network, and so on) that it creates for your domain.
 
