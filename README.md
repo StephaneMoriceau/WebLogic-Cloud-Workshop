@@ -8,7 +8,7 @@ Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 # 1. Required Keys and OCIDs
 Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
 
-1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. You can skip this if the user exists already.
+1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
 
 2. Get these items:
 
@@ -72,7 +72,7 @@ Download and install terraform and the OCI Terraform Provider as in [Getting Sta
 
 Clone the WebLogic Cloud Worshop git repository to your desktop.
 ```
-git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git  -b 2.0
+git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 ```
 
 # 6. Update the terraform configuration file with the specific of your environment
@@ -80,7 +80,7 @@ git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git  -b 2.
 1. Copy the terraform configuration variables example file
 
 ```
-$ cd terraform
+$ cd ~/WebLogic-Cloud-Workshop/terraform
 
 $ cp terraform.tfvars.example terraform.tfvars
 ```
