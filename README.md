@@ -349,7 +349,7 @@ You are now ready to create the stack.
 42. Let's check the WLS admin console of the newly created WebLogic Server
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
-- Login with weblogic username (weblogic) and the **plain text password** you selected in (section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
+- Login with weblogic username (weblogic) and the **plain text password** you selected in [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 ![alt text](images/image220.png)
 
