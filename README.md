@@ -133,7 +133,7 @@ Update the following variables with the values your recorded earlier in the lab
 - tenancy_id                 [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
 - user_id                    [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 
-- region
+- region (see note below)
 ---
 
 **Note:** To confirm your home region: Open the Console, open the Region menu, and then click Manage Regions.
