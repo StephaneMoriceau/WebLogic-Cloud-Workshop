@@ -362,7 +362,7 @@ Login with weblogic username and the plain text provided password; check the web
 
 44. We can check the Compute Instances to see what has been provisioned 
 
-From general hamburger menu choose Core Infrastructure -> Compute -> Instances:
+From ![alt text](images/main_menu_icon.png) choose Core Infrastructure -> Compute -> Instances:
 
 ![alt text](images/image240.png)
 
