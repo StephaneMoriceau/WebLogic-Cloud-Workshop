@@ -232,22 +232,24 @@ By default the stack compartment is used to contain the domain compute instances
 
 The Create Stack wizard is displayed.
 
+![alt text](images/image070.png)
 
-**Specify Stack Information**
+7. Specify Stack Information
 
 Specify the name, description, and tags for the stack.
+a. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
 
-1. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
+b. Enter a description for the stack (optional).
 
-2. Enter a description for the stack (optional).
+c. Specify one or more tags for your stack (optional).
 
-3. Specify one or more tags for your stack (optional).
-
-4. Click Next.
+d. Click Next.
 
 The Configure Variables page opens.
 
-**Configure WebLogic Instance Parameters**
+![alt text](images/image071.png)
+
+8. Configure WebLogic Instance Parameters
 
 Specify the parameters needed to configure the WebLogic instance domain.
 
