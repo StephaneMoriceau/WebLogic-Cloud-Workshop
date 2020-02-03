@@ -126,7 +126,7 @@ Key_name = "WLS_Key"
 
 Update the following variables with the values your recorded earlier in the lab
 
-- api_fingerprint   (section #1)
+- api_fingerprint   [(section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 - api_private_key_path   (section #1) 
 - api_private_key_password   (section #1) 
 - compartment_id       
