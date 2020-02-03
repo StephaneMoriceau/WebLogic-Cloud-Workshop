@@ -232,9 +232,9 @@ By default the stack compartment is used to contain the domain compute instances
 
 The Create Stack wizard is displayed.
 
-![alt text](images/image070.png)
-
 7. Specify Stack Information
+
+![alt text](images/image070.png)
 
 Specify the name, description, and tags for the stack.
 a. On the Stack Information page of the Create Stack wizard, enter a name for your stack.
@@ -247,18 +247,16 @@ d. Click Next.
 
 The Configure Variables page opens.
 
-![alt text](images/image071.png)
-
 8. Configure WebLogic Instance Parameters
+
+![alt text](images/image071.png)
 
 Specify the parameters needed to configure the WebLogic instance domain.
 
-1. In the WebLogic Server Instance section, enter the resource name prefix.
-The maximum character length is 8.
-This prefix is used by all the created resources.
+1. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
+This prefix is used by all the created resources.)
 
-2. Select the WebLogic Server shape for the compute instances.
-Only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x
+2. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
 3. Enter the SSH public key.
 
