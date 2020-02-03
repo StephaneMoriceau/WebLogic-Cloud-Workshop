@@ -26,7 +26,7 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 # 2. Encode the WebLogic administrator password in base64 format
 
-1. Choose a password with the following requirements
+1. Choose a password (minimum password length of 8 characters, of which one is non-alphabetic)
 
 2. Encode the password in base64 format
 
@@ -349,8 +349,7 @@ You are now ready to create the stack.
 42. Let's check the WLS admin console of the newly created WebLogic Server
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
-- Instead of http://< public IP >:7001/console, open https://< public IP >:7002/console; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change http with https and 7001 port with 7002 port)
-Login with weblogic username and the plain text provided password; check the weblogic_password_plaintext.txt file
+- Login with weblogic username (weblogic) and the **plain text password** you selected in (section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 ![alt text](images/image220.png)
 
