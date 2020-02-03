@@ -188,10 +188,10 @@ key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
 
 ---
 
-**Note:** Keep a record ofof the output of the above:
-- **Encrypted_data**, 
-- **cryptographic_endpoint**, and 
-- **key_OCI** for later use in this lab.
+**Note:** Keep a record of the values of the following variables for later use in the lab:
+- **Encrypted_data**
+- **cryptographic_endpoint**
+- **key_OCI**
 
 ---
 
