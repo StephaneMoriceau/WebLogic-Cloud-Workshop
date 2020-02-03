@@ -325,7 +325,7 @@ You are now ready to create the stack.
 ![alt text](images/image180.png)
 
 
-39: While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
+39. While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
 
 ![alt text](images/image190.png)
 
@@ -370,47 +370,3 @@ From general hamburger menu choose Core Infrastructure -> Compute -> Instances:
 
 
 **Congratulations! Your WLS domain is up & running!**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Configure Tags
-Oracle WebLogic Cloud can optionally assign tags to the resources (compute, network, and so on) that it creates for your domain.
-
-Tagging allows you to define keys and values and associate them with resources. You can then use the tags to help you organize and find resources based on your business needs. There are separate fields to tag the stack and to tag the resources created within the stack.
-
-To assign an existing tag, enter the Defined Tag Key and Defined Tag Value.
-Specify the name of a defined tag using the format <namespace>.<key>. For example, Operations.CostCenter.
-To assign a free-form tag, enter the Free-Form Tag Key and Free-Form Tag Value.
-Free-form tag keys and values are case sensitive. For example, costcenter and CostCenter are treated as different tags.
-Create the Domain Stack
-After you have specified the WebLogic instance variables, finish creating the domain stack.
-
-On the Review page of the Create Stack wizard, review the information you have provided, and then click Create.
-
-The Job Details page of the stack in Resource Manager is displayed. A stack creation job name has the format ormjobyyyymmddnnnnnn. (for example, ormjob20190919165004). Periodically monitor the progress of the job until it is finished. If an email address is associated with your user profile, you will receive an email notification.
-Note:If you run an Apply job on an existing stack that you created with Oracle WebLogic Cloud, all resources in the stack will be deleted and recreated.
-Use Your New Domain
-Access and manage your new domain after creating a stack with Oracle WebLogic Cloud.
-
-Typical tasks that you might perform after creating a domain:
-View and manage the cloud resources that were created to support your domain. See View the Cloud Resources for a Domain.
-Use the WebLogic Server administration console to configure your domain. Create data sources, JMS modules, Coherence clusters, and so on, or deploy applications. See Access the WebLogic Console.
-Access the sample application that's deployed to your domain. See Access the Sample Application.
-Secure access to your applications using Oracle Identity Cloud Service. See Secure a Domain Using Identity Cloud Service.
-If you selected the HTTPS option for the load balancer, you must add your SSL certificate to the load balancer. See Configure SSL for a Domain.
-Troubleshoot a problem with your new stack. See Stack Creation Failed.
