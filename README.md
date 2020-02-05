@@ -379,6 +379,12 @@ You are now ready to create the stack.
 ![alt text](images/image230.png)
 
 
+44. Let's check the WLS sample-app deployed in the newly created WebLogic Server
+
+- In a new browser window, enter the **URL** as displayed in **WebLogic Server sample application**
+
+![alt text](images/image230.png)
+
 44. We can check the Compute Instances to see what has been provisioned 
 
 From ![alt text](images/main_menu_icon.png) choose Core Infrastructure -> Compute -> Instances:
