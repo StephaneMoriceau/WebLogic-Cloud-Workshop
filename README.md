@@ -69,9 +69,11 @@ On a Windows platform, you can use the PuTTY Key Generator utility. See [Creatin
 # 4. Install terraform and terraform OCI provider on your desktop
 
 ---
+
 **Important**
 
 The Oracle Cloud Infrastructure Terraform provider version 2.2.0 and greater requires Terraform version 0.10.1 or greater.
+
 ---
 
 Download and install terraform and the OCI Terraform Provider as in [Getting Started with the Terraform Provider](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm)
