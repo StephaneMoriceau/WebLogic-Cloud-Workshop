@@ -10,9 +10,10 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
 
-2. Get these items:
+2. Keep a record of the following items for later use in the lab:
 
   * RSA key pair in PEM format (minimum 2048 bits).
+  * Path to the private key: /Your_directory/.oci/oci_api_key.pem
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
@@ -94,8 +95,8 @@ Use your preferred editor and open the file terraform.tfvars. it should look lik
 
 oci_base_identity = {
   api_fingerprint      = "64:8c:3b:..."
-  api_private_key_path = "/Path/to/my/private/key/mykey.pem"
-  api_private_key_password = "private_key_passphrase"
+  api_private_key_path = "/Your_directory/.oci/oci_api_key.pem"
+  api_private_key_password = "api_private_key_passphrase"
   compartment_id       = "ocid1.compartment.oc1..aaaaaaaa3l..."
   tenancy_id           = "ocid1.tenancy.oc1..aaaaaaaaznlqfv..."
   user_id              = "ocid1.user.oc1..aaaaaaaajbvljcmjw..."
