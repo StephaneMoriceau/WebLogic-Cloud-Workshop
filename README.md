@@ -50,7 +50,9 @@ Create a secure shell (SSH) key pair so that you can access the compute instance
 
 A key pair consists of a public key and a corresponding private key. When you create a domain using Oracle WebLogic Cloud, you specify the public key. You then access the compute instances from an SSH client using the private key.
 
-On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
+On a **Windows** platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
+
+On a **UNIX or UNIX-like** platform, use the ssh-keygen utility. For example:
 
 ```
 $ ssh-keygen -b 2048 -t rsa -f mykey
@@ -64,7 +66,6 @@ $ cat mykey.pub
 
 ---
 
-On a Windows platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
 
 # 4. Install terraform and terraform OCI provider on your desktop
 
