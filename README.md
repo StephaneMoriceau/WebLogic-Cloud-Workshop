@@ -10,9 +10,11 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
 
-2. Get these items:
+2. Keep a record of the following items for later use in the lab:
 
-  * RSA key pair in PEM format (minimum 2048 bits).
+  * RSA key pair in PEM format (minimum 2048 bits)
+  * Private key passphrase
+  * Path to the private key: /Your_directory/.oci/oci_api_key.pem
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
@@ -48,7 +50,9 @@ Create a secure shell (SSH) key pair so that you can access the compute instance
 
 A key pair consists of a public key and a corresponding private key. When you create a domain using Oracle WebLogic Cloud, you specify the public key. You then access the compute instances from an SSH client using the private key.
 
-On a UNIX or UNIX-like platform, use the ssh-keygen utility. For example:
+On a **Windows** platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
+
+On a **UNIX or UNIX-like** platform, use the ssh-keygen utility. For example:
 
 ```
 $ ssh-keygen -b 2048 -t rsa -f mykey
@@ -62,18 +66,33 @@ $ cat mykey.pub
 
 ---
 
-On a Windows platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
 
 # 4. Install terraform and terraform OCI provider on your desktop
 
+---
+
+**Important Note:**
+
+The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater requires Terraform version 0.12 or greater.
+
+---
+
 Download and install terraform and the OCI Terraform Provider as in [Getting Started with the Terraform Provider](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm)
 
-# 5. Clone this github on your laptop
+# 5. Clone this github repository on your laptop
 
-Clone the WebLogic Cloud Worshop git repository to your desktop.
+Clone the WebLogic Cloud Workshop git repository to your desktop.
 ```
 git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 ```
+
+---
+
+**Note:**
+
+If git is not already install on your desktop, you may want to simply create a directory named **terraform** and manually copy all the files from https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git/tree/master/terraform in newly created files under your terraform directory.
+
+---
 
 # 6. Update the terraform configuration file with the specifics of your environment
 
@@ -94,8 +113,8 @@ Use your preferred editor and open the file terraform.tfvars. it should look lik
 
 oci_base_identity = {
   api_fingerprint      = "64:8c:3b:..."
-  api_private_key_path = "/Path/to/my/private/key/mykey.pem"
-  api_private_key_password = "private_key_passphrase"
+  api_private_key_path = "/Your_directory/.oci/oci_api_key.pem"
+  api_private_key_password = "api_private_key_passphrase"
   compartment_id       = "ocid1.compartment.oc1..aaaaaaaa3l..."
   tenancy_id           = "ocid1.tenancy.oc1..aaaaaaaaznlqfv..."
   user_id              = "ocid1.user.oc1..aaaaaaaajbvljcmjw..."
@@ -129,7 +148,7 @@ Update the following variables with the values your recorded earlier in the lab
 - api_fingerprint            [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 - api_private_key_path       [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 - api_private_key_password   [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
-- compartment_id             (use the Tenancy OCID as per [section #1](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))
+- compartment_id             (use the Tenancy OCID as per [section #1](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
 - tenancy_id                 [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
 - user_id                    [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 
@@ -349,6 +368,7 @@ You are now ready to create the stack.
 42. Let's check the WLS admin console of the newly created WebLogic Server
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
+- In a new browser window, enter the **URL** as displayed in **WebLogic Server Administration Console**
 - Login with weblogic username (weblogic) and the **plain text password** you selected in [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 ![alt text](images/image220.png)
@@ -359,14 +379,20 @@ You are now ready to create the stack.
 ![alt text](images/image230.png)
 
 
-44. We can check the Compute Instances to see what has been provisioned 
+44. Let's check the WLS sample-app deployed in the newly created WebLogic Server
+
+- In a new browser window, enter the **URL** as displayed in **WebLogic Server sample application**
+
+![alt text](images/image235.png)
+
+45. We can check the Compute Instances to see what has been provisioned 
 
 From ![alt text](images/main_menu_icon.png) choose Core Infrastructure -> Compute -> Instances:
 
 ![alt text](images/image240.png)
 
 
-45. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
+46. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
 
 ![alt text](images/image250.png)
 
