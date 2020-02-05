@@ -383,16 +383,16 @@ You are now ready to create the stack.
 
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server sample application**
 
-![alt text](images/image230.png)
+![alt text](images/image235.png)
 
-44. We can check the Compute Instances to see what has been provisioned 
+45. We can check the Compute Instances to see what has been provisioned 
 
 From ![alt text](images/main_menu_icon.png) choose Core Infrastructure -> Compute -> Instances:
 
 ![alt text](images/image240.png)
 
 
-45. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
+46. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
 
 ![alt text](images/image250.png)
 
