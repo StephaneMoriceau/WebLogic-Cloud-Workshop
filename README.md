@@ -12,7 +12,8 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 2. Keep a record of the following items for later use in the lab:
 
-  * RSA key pair in PEM format (minimum 2048 bits).
+  * RSA key pair in PEM format (minimum 2048 bits)
+  * Private key passphrase
   * Path to the private key: /Your_directory/.oci/oci_api_key.pem
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
@@ -69,7 +70,7 @@ On a Windows platform, you can use the PuTTY Key Generator utility. See [Creatin
 
 Download and install terraform and the OCI Terraform Provider as in [Getting Started with the Terraform Provider](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm)
 
-# 5. Clone this github on your laptop
+# 5. Clone this github repository on your laptop
 
 Clone the WebLogic Cloud Workshop git repository to your desktop.
 ```
