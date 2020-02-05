@@ -70,9 +70,9 @@ On a Windows platform, you can use the PuTTY Key Generator utility. See [Creatin
 
 ---
 
-**Important**
+**Important Note:**
 
-The Oracle Cloud Infrastructure Terraform provider version 2.2.0 and greater requires Terraform version 0.10.1 or greater.
+The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater requires Terraform version 0.12 or greater.
 
 ---
 
@@ -83,7 +83,16 @@ Download and install terraform and the OCI Terraform Provider as in [Getting Sta
 Clone the WebLogic Cloud Workshop git repository to your desktop.
 ```
 git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
+
 ```
+
+---
+
+**Note:**
+
+If git is not already install on your desktop you may want to simply create a terraform directory and manually copy all the files in https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git/terraform for a faster progress
+
+---
 
 # 6. Update the terraform configuration file with the specifics of your environment
 
