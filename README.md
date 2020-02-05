@@ -70,7 +70,7 @@ Download and install terraform and the OCI Terraform Provider as in [Getting Sta
 
 # 5. Clone this github on your laptop
 
-Clone the WebLogic Cloud Worshop git repository to your desktop.
+Clone the WebLogic Cloud Workshop git repository to your desktop.
 ```
 git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 ```
