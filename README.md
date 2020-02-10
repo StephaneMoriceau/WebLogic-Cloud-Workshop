@@ -67,7 +67,7 @@ $ cat mykey.pub
 ---
 
 
-# 4. Install terraform and terraform OCI provider on your desktop
+# 4. Install terraform on your desktop
 
 ---
 
