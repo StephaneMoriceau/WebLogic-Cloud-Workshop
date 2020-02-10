@@ -77,7 +77,11 @@ The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater re
 
 ---
 
-Download and install terraform and the OCI Terraform Provider as in [Getting Started with the Terraform Provider](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformgetstarted.htm)
+Follow this [video](https://learn.hashicorp.com/terraform/getting-started/install.html) to install terraform on your laptop. Note: The first part of the video provides instruction for **Unix and Mac** and the second for **Windows**
+
+![alt text](images/image040.png)
+
+
 
 # 5. Clone this github repository on your laptop
 
