@@ -77,7 +77,7 @@ The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater re
 
 ---
 
-Follow this [video](https://learn.hashicorp.com/terraform/getting-started/install.html) to install terraform on your laptop. Note: The first part of the video provides instructions for **macOS and Linux** and the second for **Windows**
+Follow this [video](https://learn.hashicorp.com/terraform/getting-started/install.html) to install terraform on your laptop. Note: The first part of the video provides instructions for **macOS and Linux** and the second for **Windows**.
 
 ![alt text](images/image030.png)
 
