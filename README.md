@@ -97,7 +97,7 @@ svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/ter
 1. Copy the terraform configuration variables example file
 
 ```
-$ cd ~/WebLogic-Cloud-Workshop/terraform
+$ cd ~/terraform
 
 $ cp terraform.tfvars.example terraform.tfvars
 ```
