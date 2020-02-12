@@ -3,7 +3,7 @@ Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 
 # 0. Prerequisites
 
-- [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of January, 2019).
+- [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of January, 2020).
 
 # 1. Required Keys and OCIDs
 Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
@@ -83,20 +83,14 @@ Follow this [video](https://learn.hashicorp.com/terraform/getting-started/instal
 
 
 
-# 5. Clone this github repository on your laptop
+# 5. Copy the terraform config files on your laptop
 
-Clone the WebLogic Cloud Workshop git repository to your desktop.
+
 ```
-git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
+svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/terraform
 ```
 
----
 
-**Note:**
-
-If git is not already install on your desktop, you may want to simply create a directory named **terraform** and manually copy all the files from https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git/tree/master/terraform in newly created files under your terraform directory.
-
----
 
 # 6. Update the terraform configuration file with the specifics of your environment
 
