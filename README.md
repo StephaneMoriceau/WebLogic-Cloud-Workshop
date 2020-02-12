@@ -94,7 +94,7 @@ git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 
 **Note:**
 
-If git is not already install on your desktop, you may want to simply create a directory named **terraform** and manually copy all the files from https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git/tree/master/terraform in newly created files under your terraform directory.
+If git is not already install on your desktop, you may want to simply create a directory named **terraform** and manually copy all the files from https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform in newly created files under your terraform directory.
 
 ---
 
