@@ -83,13 +83,21 @@ Follow this [video](https://learn.hashicorp.com/terraform/getting-started/instal
 
 
 
-# 5. Copy the terraform config files on your laptop
+# 5. Copy the terraform config files on your desktop
 
 
 ```
 svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/terraform
 ```
+---
 
+**Note:** If 'svn' is not installed on your desktop, you can download the terraform config files by using [DownGit](https://minhaskamal.github.io/DownGit/#/home). 
+
+* Enter https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform 
+* Click on **Download**
+* Move the 'terraform.zip' from your Downloads directory to your working directory and expand it
+
+---
 
 
 # 6. Update the terraform configuration file with the specifics of your environment
