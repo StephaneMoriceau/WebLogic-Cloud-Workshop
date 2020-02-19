@@ -93,7 +93,7 @@ svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/ter
 
 **Note:** If 'svn' is not installed on your desktop, you can download the terraform config files by using [DownGit](https://minhaskamal.github.io/DownGit/#/home). 
 
-* Enter 'https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform'  
+* Enter https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform 
 * Click on **Download**
 * Move the 'terraform.zip' from your Downloads directory to your working directory and expand it
 
