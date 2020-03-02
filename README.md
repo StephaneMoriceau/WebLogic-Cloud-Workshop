@@ -10,7 +10,7 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
 
-2. Keep a record of the following items for later use in the lab:
+2. **Keep a record of the following items for later use in the lab:**
 
   * RSA key pair in PEM format (minimum 2048 bits)
   * Private key passphrase
@@ -22,7 +22,7 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 ---
 
-**Note:** Keep a record of: **Fingerptint of the public key**, **Tenancy's OCID**, **user's OCID**, and **Path of the private key on your desktop** for later use in this lab.
+**Note:** Did you keep a record of the following? **RSA key pair in PEM format**, **Private key passphrase**, **Path of the private key on your desktop**, **Fingerptint of the public key**, **Tenancy's OCID**, and **user's OCID** for later use in this lab.
 
 ---
 
