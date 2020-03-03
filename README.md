@@ -33,13 +33,13 @@ You can use the icons in the upper right corner of the Cloud Shell window to min
 
 ---
 
-# 1. Required Keys and OCIDs
+# 2. Required Keys and OCIDs
 
 Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
 
-1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
+1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this step if you want to run this lab as the user you are currently logged in.**
 
-2. **Keep a record of the following items for later use in the lab:**
+2. Generate an API signing key and Record of the following items for later use in the lab:
 
   * RSA key pair in PEM format (minimum 2048 bits)
   * Private key passphrase
@@ -47,7 +47,7 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
-3. Upload the public key from the key pair in the Console
+3. Upload PEM the public key from the key pair in the Console
 
 ---
 
@@ -55,13 +55,13 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
 
 ---
 
-# 2. Encode the WebLogic administrator password in base64 format
+# 3. Encode the WebLogic administrator password in base64 format
 
 1. Choose a password (minimum password length of 8 characters, of which one is non-alphabetic)
 
 2. Encode the password in base64 format
 
-  For example, on Linux:
+  In your CloudShell window, use the following command:
 
 ```
 $ echo -n 'Your_Password' | base64
@@ -73,15 +73,13 @@ $ echo -n 'Your_Password' | base64
 
 ---
 
-# 3. Create an SSH Key 
+# 4. Create an SSH Key 
 
 Create a secure shell (SSH) key pair so that you can access the compute instances in your Oracle WebLogic Server domains.
 
 A key pair consists of a public key and a corresponding private key. When you create a domain using Oracle WebLogic Cloud, you specify the public key. You then access the compute instances from an SSH client using the private key.
 
-On a **Windows** platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
-
-On a **UNIX or UNIX-like** platform, use the ssh-keygen utility. For example:
+In your CLoud Shell window, use the ssh-keygen utility:
 
 ```
 $ ssh-keygen -b 2048 -t rsa -f mykey
@@ -94,23 +92,6 @@ $ cat mykey.pub
 **Note:** Keep a record of the output of the above **'cat mykey.pub'** command for later use in this lab.
 
 ---
-
-
-# 4. Install terraform on your desktop
-
----
-
-**Important Note:**
-
-The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater requires Terraform version 0.12 or greater.
-
----
-
-Follow this [video](https://learn.hashicorp.com/terraform/getting-started/install.html) to install terraform on your laptop. Note: The first part of the video provides instructions for **macOS and Linux** and the second for **Windows**.
-
-![alt text](images/image030.png)
-
-
 
 # 5. Copy the terraform config files on your desktop
 
