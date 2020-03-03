@@ -93,36 +93,26 @@ $ cat mykey.pub
 
 ---
 
-# 5. Copy the terraform config files on your desktop
+# 5. Clone this fit repository in you CloudShell window
 
 
 ```
-svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/terraform
+git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
 ```
----
-
-**Note:** If 'svn' is not installed on your desktop, you can download the terraform config files by using [DownGit](https://minhaskamal.github.io/DownGit/#/home). 
-
-* Enter https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform 
-* Click on **Download**
-* Move the 'terraform.zip' from your Downloads directory to your working directory and expand it
-
----
-
 
 # 6. Update the terraform configuration file with the specifics of your environment
 
 1. Copy the terraform configuration variables example file
 
 ```
-$ cd ~/terraform
+$ cd ~/WebLogic-Cloud-Workshop/terraform
 
 $ cp terraform.tfvars.example terraform.tfvars
 ```
 
 2. Open the terraform.tfvars file
 
-Use your preferred editor and open the file terraform.tfvars. it should look like this:
+Use your preferred editor to open the file terraform.tfvars. it should look like this:
 
 ```
 # Identity and access parameters
@@ -159,14 +149,14 @@ Key_name = "WLS_Key"
 
 3. Update the terraform.tfvars file with the specific of your environment
 
-Update the following variables with the values your recorded earlier in the lab
+Update the following variables with the values you recorded earlier (section 2, 3, and 4)
 
-- api_fingerprint            [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_path       [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_password   [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
-- compartment_id             (use the Tenancy OCID as per [section #1](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
-- tenancy_id                 [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
-- user_id                    [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_fingerprint            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_path       [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_password   [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
+- compartment_id             (use the Tenancy OCID as per [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
+- tenancy_id                 [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
+- user_id                    [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
 
 - region (see note below)
 ---
@@ -176,7 +166,7 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
+- Base64_Password            [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
 
 4. Save terraform.tfvars
 
