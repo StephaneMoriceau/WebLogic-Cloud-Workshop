@@ -154,11 +154,11 @@ Key_name = "WLS_Key"
 Update the following variables with the values you recorded earlier (section 2, 3, and 4)
 
 - api_fingerprint            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
-- api_private_key_path       [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_password   [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
-- compartment_id             (use the Tenancy OCID as per [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
-- tenancy_id                 [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
-- user_id                    [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_private_key_path       [(See section #2)]https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
+- api_private_key_password   [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids) 
+- compartment_id             (use the Tenancy OCID as per [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
+- tenancy_id                 [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids))           
+- user_id                    [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
 
 - region (see note below)
 ---
