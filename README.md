@@ -291,7 +291,7 @@ This prefix is used by all the created resources.)
 
 13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-14. Enter the SSH public key. [(See section #4)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
+14. Enter the SSH public key. [(See section #4)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#4-create-an-ssh-key)
 
 15. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
