@@ -93,7 +93,7 @@ $ cat mykey.pub
 
 ---
 
-# 5. Clone this fit repository in you CloudShell window
+# 5. Clone this git repository in you CloudShell window to access the terraform scripts
 
 
 ```
@@ -112,7 +112,7 @@ $ cp terraform.tfvars.example terraform.tfvars
 
 2. Open the terraform.tfvars file
 
-Use your preferred editor to open the file terraform.tfvars. it should look like this:
+Use your preferred editor (for example vim or nano) to open the file terraform.tfvars. This should look like this:
 
 ```
 # Identity and access parameters
@@ -172,6 +172,8 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
+
+Execute the following steps in your CloudShell window.
 
 1. Initialize Terraform:
 
