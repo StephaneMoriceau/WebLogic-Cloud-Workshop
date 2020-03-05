@@ -5,12 +5,41 @@ Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 
 - [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of January, 2020).
 
-# 1. Required Keys and OCIDs
+# 1. Cloud Shell
+
+Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell, with a pre-authenticated Oracle Cloud Infrastructure CLI and other useful tools for following Oracle Cloud Infrastructure service tutorials and labs. 
+
+Cloud Shell is a feature available to all OCI users, accessible from the Console. Your Cloud Shell will appear in the Oracle Cloud Console as a persistent frame of the Console, and will stay active as you navigate to different pages of the Console.
+
+**Getting Started with Cloud Shell**
+
+To access Cloud Shell:
+
+1. Login to the Console.
+
+2. Click the Cloud Shell icon in the Console header. Note that the OCI CLI running in the Cloud Shell will execute commands against the region selected in the Console's Region selection menu when the Cloud Shell was started.
+
+![alt text](images/image005.png)
+
+This will display the Cloud Shell in a "drawer" at the bottom of the console:
+
+![alt text](images/image006.png)
+
+You can use the icons in the upper right corner of the Cloud Shell window to minimize, maximize, restart, and close your Cloud Shell session.
+
+---
+
+**Note:** For clipboard operations, Windows users can use Ctrl-C or Ctrl-Insert to copy, and Shift-Insert to paste. For Mac OS users, use Cmd-C to copy and Cmd-V to paste.
+
+---
+
+# 2. Required Keys and OCIDs
+
 Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
 
-1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this if the user exists already.**
+1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this step if you want to run this lab as the user you are currently logged in.**
 
-2. Keep a record of the following items for later use in the lab:
+2. Generate an API signing key and Record of the following items for later use in the lab:
 
   * RSA key pair in PEM format (minimum 2048 bits)
   * Private key passphrase
@@ -18,21 +47,21 @@ Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.clou
   * Fingerprint of the public key.
   * Tenancy's OCID and user's OCID.
 
-3. Upload the public key from the key pair in the Console
+3. Upload PEM the public key from the key pair in the Console
 
 ---
 
-**Note:** Keep a record of: **Fingerptint of the public key**, **Tenancy's OCID**, **user's OCID**, and **Path of the private key on your desktop** for later use in this lab.
+**Note:** Did you keep a record of the following? **RSA key pair in PEM format**, **Private key passphrase**, **Path of the private key on your desktop**, **Fingerptint of the public key**, **Tenancy's OCID**, and **user's OCID** for later use in this lab.
 
 ---
 
-# 2. Encode the WebLogic administrator password in base64 format
+# 3. Encode the WebLogic administrator password in base64 format
 
 1. Choose a password (minimum password length of 8 characters, of which one is non-alphabetic)
 
 2. Encode the password in base64 format
 
-  For example, on Linux:
+  In your CloudShell window, use the following command:
 
 ```
 $ echo -n 'Your_Password' | base64
@@ -44,15 +73,13 @@ $ echo -n 'Your_Password' | base64
 
 ---
 
-# 3. Create an SSH Key 
+# 4. Create an SSH Key 
 
 Create a secure shell (SSH) key pair so that you can access the compute instances in your Oracle WebLogic Server domains.
 
 A key pair consists of a public key and a corresponding private key. When you create a domain using Oracle WebLogic Cloud, you specify the public key. You then access the compute instances from an SSH client using the private key.
 
-On a **Windows** platform, you can use the PuTTY Key Generator utility. See [Creating a Key Pair ](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/user&id=oci_general_keypair) in the Oracle Cloud Infrastructure documentation.
-
-On a **UNIX or UNIX-like** platform, use the ssh-keygen utility. For example:
+In your CLoud Shell window, use the ssh-keygen utility:
 
 ```
 $ ssh-keygen -b 2048 -t rsa -f mykey
@@ -66,53 +93,28 @@ $ cat mykey.pub
 
 ---
 
-
-# 4. Install terraform on your desktop
-
----
-
-**Important Note:**
-
-The Oracle Cloud Infrastructure Terraform provider version 3.27.0 and greater requires Terraform version 0.12 or greater.
-
----
-
-Follow this [video](https://learn.hashicorp.com/terraform/getting-started/install.html) to install terraform on your laptop. Note: The first part of the video provides instructions for **macOS and Linux** and the second for **Windows**.
-
-![alt text](images/image030.png)
-
-
-
-# 5. Copy the terraform config files on your desktop
+# 5. Clone this git repository in you CloudShell window to access the terraform scripts
 
 
 ```
-svn export https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/trunk/terraform
+
+git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
+
 ```
----
-
-**Note:** If 'svn' is not installed on your desktop, you can download the terraform config files by using [DownGit](https://minhaskamal.github.io/DownGit/#/home). 
-
-* Enter https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/master/terraform 
-* Click on **Download**
-* Move the 'terraform.zip' from your Downloads directory to your working directory and expand it
-
----
-
 
 # 6. Update the terraform configuration file with the specifics of your environment
 
 1. Copy the terraform configuration variables example file
 
 ```
-$ cd ~/terraform
+$ cd ~/WebLogic-Cloud-Workshop/terraform
 
 $ cp terraform.tfvars.example terraform.tfvars
 ```
 
 2. Open the terraform.tfvars file
 
-Use your preferred editor and open the file terraform.tfvars. it should look like this:
+Use your preferred editor (for example vim or nano) to open the file terraform.tfvars. This should look like this:
 
 ```
 # Identity and access parameters
@@ -149,14 +151,14 @@ Key_name = "WLS_Key"
 
 3. Update the terraform.tfvars file with the specific of your environment
 
-Update the following variables with the values your recorded earlier in the lab
+Update the following variables with the values you recorded earlier (section 2, 3, and 4)
 
-- api_fingerprint            [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_path       [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
-- api_private_key_password   [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids) 
-- compartment_id             (use the Tenancy OCID as per [section #1](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
-- tenancy_id                 [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids))           
-- user_id                    [(See section #1)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#1-required-keys-and-ocids)
+- api_fingerprint            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
+- api_private_key_path       [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
+- api_private_key_password   [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids) 
+- compartment_id             (use the Tenancy OCID as per [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
+- tenancy_id                 [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids))           
+- user_id                    [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
 
 - region (see note below)
 ---
@@ -166,12 +168,14 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
+- Base64_Password            [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#3-encode-the-weblogic-administrator-password-in-base64-format)
 
 4. Save terraform.tfvars
 
 
 # 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
+
+Execute the following steps in your CloudShell window.
 
 1. Initialize Terraform:
 
@@ -206,9 +210,9 @@ Apply complete! Resources: 3 added, 0 changed, 2 destroyed.
 Outputs:
 
 Encrypted_data = IcsoJqtmC[..........]WJcMcUgAAAAA=
-compartment_id = ocid1.compartment.oc1..aaaaaaaa[..........]hlybyag3ibeza
 cryptographic_endpoint = https://a5[..........]w-crypto.kms.us-phoenix-1.oraclecloud.com
 key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
+
 ```
 
 ---
@@ -287,7 +291,7 @@ This prefix is used by all the created resources.)
 
 13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-14. Enter the SSH public key. [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/tree/readme#3-create-an-ssh-key)
+14. Enter the SSH public key. [(See section #4)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#4-create-an-ssh-key)
 
 15. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
@@ -296,7 +300,7 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 17. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
 **Configure Advanced Parameters for a Domain**
 
@@ -334,9 +338,9 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 32. Database Strategy: keep the default **No Database**
 
-33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
-34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
 
 35. At the bottom of the Configure Variables page, click **Next**
 
@@ -375,7 +379,7 @@ You are now ready to create the stack.
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server Administration Console**
-- Login with weblogic username (weblogic) and the **plain text password** you selected in [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/readme/README.md#2-encode-the-weblogic-administrator-password-in-base64-format)
+- Login with weblogic username (weblogic) and the **plain text password** you selected in [section #3](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#3-encode-the-weblogic-administrator-password-in-base64-format)
 
 ![alt text](images/image220.png)
 
