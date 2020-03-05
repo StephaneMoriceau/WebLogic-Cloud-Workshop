@@ -210,9 +210,8 @@ Apply complete! Resources: 3 added, 0 changed, 2 destroyed.
 Outputs:
 
 Encrypted_data = IcsoJqtmC[..........]WJcMcUgAAAAA=
-compartment_id = ocid1.compartment.oc1..aaaaaaaa[..........]hlybyag3ibeza
-cryptographic_endpoint = https://a5[..........]w-crypto.kms.us-phoenix-1.oraclecloud.com
 key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
+cryptographic_endpoint = https://a5[..........]w-crypto.kms.us-phoenix-1.oraclecloud.com
 ```
 
 ---
