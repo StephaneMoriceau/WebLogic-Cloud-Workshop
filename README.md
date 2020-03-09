@@ -151,7 +151,7 @@ Key_name = "WLS_Key"
 
 3. Update the terraform.tfvars file with the specific of your environment
 
-Update the following variables with the values you recorded earlier (section 2, 3, and 4)
+Update the following variables with the values you recorded earlier (section #2, #3, and #4)
 
 - api_fingerprint            (See section #2)
 - api_private_key_path       (See section #2)
