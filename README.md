@@ -153,12 +153,12 @@ Key_name = "WLS_Key"
 
 Update the following variables with the values you recorded earlier (section 2, 3, and 4)
 
-- api_fingerprint            [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
-- api_private_key_path       [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
-- api_private_key_password   [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids) 
-- compartment_id             (use the Tenancy OCID as per [section #2](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)) Note: using the Tenancy OCID selects the root compartment in that tenancy.
-- tenancy_id                 [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids))           
-- user_id                    [(See section #2)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#2-required-keys-and-ocids)
+- api_fingerprint            (See section #2)
+- api_private_key_path       (See section #2)
+- api_private_key_password   (See section #2)
+- compartment_id             (use the Tenancy OCID as per section #2) Note: using the Tenancy OCID selects the root compartment in that tenancy.
+- tenancy_id                 (See section #2)           
+- user_id                    (See section #2)
 
 - region (see note below)
 ---
@@ -168,7 +168,7 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 ---
 
-- Base64_Password            [(See section #3)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#3-encode-the-weblogic-administrator-password-in-base64-format)
+- Base64_Password            (See section #3)
 
 4. Save terraform.tfvars
 
@@ -291,7 +291,7 @@ This prefix is used by all the created resources.)
 
 13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
 
-14. Enter the SSH public key. [(See section #4)](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#4-create-an-ssh-key)
+14. Enter the SSH public key. (See section #4)
 
 15. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
@@ -300,7 +300,7 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 17. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in section #7**
 
 **Configure Advanced Parameters for a Domain**
 
@@ -338,9 +338,9 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 32. Database Strategy: keep the default **No Database**
 
-33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in section #7**
 
-34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in [section #7](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#7-create-the-required-infrasture-to-provision-a-domain-in-weblogic-cloud-from-the-oci-marketplace)**
+34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in section #7**
 
 35. At the bottom of the Configure Variables page, click **Next**
 
@@ -379,7 +379,7 @@ You are now ready to create the stack.
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server Administration Console**
-- Login with weblogic username (weblogic) and the **plain text password** you selected in [section #3](https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop/blob/add-cloudshell/README.md#3-encode-the-weblogic-administrator-password-in-base64-format)
+- Login with weblogic username (weblogic) and the **plain text password** you selected in section #3
 
 ![alt text](images/image220.png)
 
