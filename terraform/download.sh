@@ -4,7 +4,7 @@ printf "\nCreating directory WebLogic-Cloud-Workshop ...\n\n"
 
 mkdir WebLogic-Cloud-Workshop
 
-cd WLSHOL-terraform
+cd WebLogic-Cloud-Workshop
 
 printf "Downloading terraform scripts in ~/WebLogic-Cloud-Workshop ...\n\n"
 
