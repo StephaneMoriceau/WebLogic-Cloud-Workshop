@@ -93,12 +93,12 @@ $ cat mykey.pub
 
 ---
 
-# 5. Clone this git repository in you CloudShell window to access the terraform scripts
+# 5. In your CloudShell window, dowload the terraform scripts from this git repository
 
 
 ```
 
-git clone https://github.com/StephaneMoriceau/WebLogic-Cloud-Workshop.git
+bash <(curl -s https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/download.sh)
 
 ```
 
