@@ -1,12 +1,12 @@
 [ -d ~/WebLogic-Cloud-Workshop ] && rm -r WebLogic-Cloud-Workshop
 
-printf "\nCreating directory WLSHOL-terraform ...\n\n"
+printf "\nCreating directory WebLogic-Cloud-Workshop ...\n\n"
 
 mkdir WebLogic-Cloud-Workshop
 
 cd WLSHOL-terraform
 
-printf "Downloading terraform scripts in ~/WLSHOL-terraform ...\n\n"
+printf "Downloading terraform scripts in ~/WebLogic-Cloud-Workshop ...\n\n"
 
 curl https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/main.tf --output main.tf
 
