@@ -2,7 +2,7 @@
 
 printf "\nCreating directory WLSHOL-terraform ...\n\n"
 
-mkdir WLSHOL-terraform
+mkdir WebLogic-Cloud-Workshop
 
 cd WLSHOL-terraform
 
@@ -14,6 +14,6 @@ curl https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/
 
 curl https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/terraform.tfvars.example --output terraform.tfvars.example
 
-https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/variables.tf --output variables.tf
+curl https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/variables.tf --output variables.tf
 
 printf "\nDownload complete.\n\n"
