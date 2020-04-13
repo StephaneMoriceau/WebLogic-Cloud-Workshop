@@ -93,7 +93,7 @@ $ cat mykey.pub
 
 ---
 
-# 5. In your CloudShell window, dowload the terraform scripts from this git repository
+# 5. In your CloudShell window, type the following window to dowload the terraform configuration files from this git repository
 
 
 ```
@@ -107,7 +107,7 @@ bash <(curl -s https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud
 1. Copy the terraform configuration variables example file
 
 ```
-$ cd ~/WebLogic-Cloud-Workshop/terraform
+$ cd ~/WebLogic-Cloud-Workshop
 
 $ cp terraform.tfvars.example terraform.tfvars
 ```
