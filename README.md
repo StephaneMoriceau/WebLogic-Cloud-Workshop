@@ -95,7 +95,7 @@ $ cat mykey.pub
 
 # 5. Download the terraform configuration files from this git repository
 
-In your Cloud Shell wondow, type / paste the following comand:
+In your Cloud Shell window, type / paste the following comand:
 
 ```
 
