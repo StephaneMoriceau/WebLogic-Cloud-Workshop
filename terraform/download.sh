@@ -1,4 +1,4 @@
-[ -d ~/WebLogic-Cloud-Workshop ] && rm -r WebLogic-Cloud-Workshop
+[ -d WebLogic-Cloud-Workshop ] && rm -r WebLogic-Cloud-Workshop
 
 printf "\nCreating directory WebLogic-Cloud-Workshop ...\n\n"
 
