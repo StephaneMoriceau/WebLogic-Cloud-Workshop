@@ -99,7 +99,7 @@ In your Cloud Shell window, type / paste the following comand:
 
 ```
 
-bash <(curl -s https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/update-section%235/terraform/download.sh)
+bash <(curl -s https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/master/terraform/download.sh)
 
 ```
 
