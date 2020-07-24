@@ -152,9 +152,9 @@ Category: Application Development
 ![alt text](images/image060.png)
 
 4. Select a version of Oracle WebLogic Server 12c.
-If there's more than one 12c patch, the latest patch is the default.
+If there's more than one 12c patch, the latest patch is the default. (Please note that if you select a 11g version a datase will be required)
 
-5. Select the compartment **"WLS_Compartment"** in which we will create the stack.
+5. Select the compartment that you created in the secion #0 Prerequisites.
 
 ![alt text](images/image061.png)
 
@@ -182,7 +182,7 @@ Specify the name, description, and tags for the stack.
 
 The Configure Variables page opens.
 
-**Configure WebLogic Instance Parameters**
+**Configure WebLogic Server Instance Parameters**
 
 ![alt text](images/image071.png)
 
@@ -191,18 +191,18 @@ Specify the parameters needed to configure the WebLogic instance domain.
 12. In the WebLogic Server Instance section, enter the resource name prefix.(The maximum character length is 8.
 This prefix is used by all the created resources.)
 
-13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**. (Fyi, only the following shapes are supported: VM.Standard2.x, VM.Standard.E2.x, BM.Standard2.x, BM.Standard.E2.x 
+13. Select the WebLogic Server shape for the compute instances: **VM.Standard2.1**.
 
-14. Enter the SSH public key. (See section #4)
+14. Enter the SSH public key. (See section #2)
 
 15. Select the availability domain where you want to create the domain.**Choose one of the displyed ADs**
 
-16. Select the number of managed servers you want to create. **Select 2**
+16. Select the number of managed servers node you want to create. **Select 2**
 The managed servers will be members of a cluster, unless you selected WebLogic Server Standard Edition.
 
 17. Enter a user name for the WebLogic Server administrator. **Enter weblogic**
 
-18. Enter an encrypted password for the WebLogic Server administrator. **Enter the value of Encrypted-data in the output of the terraform apply command that you run in section #7**
+18. For Secrets OCID for WebLogic Server Admin Password, enter the OCID of the secret you created (see section #4) to contain the password for the WebLogic Server administrator.
 
 **Configure Advanced Parameters for a Domain**
 
@@ -232,9 +232,9 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 29. LB Shape: Select **400Mbps**
 
-30. Do **NOT** select **Prepare Load Balancer for https**
+30. Do **NOT** select **Enable authentification using Identity Cloud Service**
 
-31. Do **NOT** select **Enable authentification using Identity Cloud Service**
+31. Do **NOT** select **Provision with JRF**
 
 32. At the bottom of the Configure Variables page, click **Next**
 
@@ -270,6 +270,15 @@ You are now ready to create the stack.
 
 
 38. Let's check the WLS admin console of the newly created WebLogic Server
+
+---
+
+**Note:** 
+When you create a domain with a load balancer, Oracle WebLogic Server for Oracle Cloud Infrastructure now creates a load balancer that always uses Secure Socket Layer (SSL). Previously you had to select a checkbox in the Create Stack wizard if you wanted the load balancer to use SSL and listen on an HTTPS port.
+
+Now during load balancer provisioning, Oracle WebLogic Server for Oracle Cloud Infrastructure adds a demonstration self-signed certificate to configure the HTTPS listener. After the domain is provisioned, we recommend you upload your own SSL certificate obtained from a Certificate Authority (CA), and associate the HTTPS listener with your certificate. See [Add a Certificate] (https://docs.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/new&id=WLCUG-GUID-3F23BD25-DBC0-4EB0-808C-71A220F3DFEB) to the Load Balancer in Using Oracle WebLogic Server for Oracle Cloud Infrastructure.
+
+---
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server Administration Console**
