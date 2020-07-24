@@ -62,7 +62,7 @@ $ cat mykey.pub
 
 ---
 
-**Note:** Keep a record of the output of the above **'cat mykey.pub'** command for later use in this lab.
+**Note:** Keep a record of the output of the above **'cat mykey.pub'** command for later use in the lab.
 
 ---
 
@@ -73,94 +73,54 @@ In your Cloud Shell window, type / paste the following comand:
 
 1. Sign in to the Oracle Cloud Infrastructure console.
 
-2. Click the navigation menu Menu icon, under Governance and Administration, select Security, and then click Vault.
+2. Click the ![alt text](images/main_menu_icon.png) Navigation Menu icon and under Governance and Administration, select Security, and then click Vault.
 
+![alt text](images/image040.png)
 
+3. Select your Compartment, if not already selected and Click Create Vault.For Name, enter WebLogicOCIVault and Click Create.
 
-3. Select your Compartment, if not already selected.
+![alt text](images/image040.png)
 
-
-Click Create Vault.
-For Name, enter WebLogicOCIVault.
-Click Create.
 Wait for the vault to be created.
 
-Click the new vault.
-Click Master Encryption Keys, and then click Create Key.
-For Name, enter WebLogicOCIKey.
-Click Create Key.
+7. Click the new vault.
+
+8. Click Master Encryption Keys, and then click Create Key. 
+
+![alt text](images/image040.png)
+
+9. For Name, enter WebLogicOCIKey.
+
+10. Then, click Create Key.
+
 Wait for the key to be created and enabled before you create a secret.
 
 # 6. Create a Secret for Your WebLogic Password
 
-1. Copy the terraform configuration variables example file
+1. In the vault, click Secrets, and then click Create Secret.
 
-```
-$ cd ~/WebLogic-Cloud-Workshop
+![alt text](images/image040.png)
 
-$ cp terraform.tfvars.example terraform.tfvars
-```
+2. For Name, enter WebLogicAdminSecret.
 
-2. Open the terraform.tfvars file
+3. Select the key WebLogicOCIKey that you created.
 
-Use your preferred editor (for example vim or nano) to open the file terraform.tfvars. This should look like this:
+4. For Secret Contents, enter the password you want to use for the WebLogic Server administrator.
+The password must start with a letter, is between 8 and 30 characters long, contain at least one number, and, optionally, any number of the special characters ($ # _).
 
-```
-# Identity and access parameters
+5. Click Create Secret.
 
-oci_base_identity = {
-  api_fingerprint      = "64:8c:3b:..."
-  api_private_key_path = "/Your_directory/.oci/oci_api_key.pem"
-  api_private_key_password = "api_private_key_passphrase"
-  compartment_id       = "ocid1.compartment.oc1..aaaaaaaa3l..."
-  tenancy_id           = "ocid1.tenancy.oc1..aaaaaaaaznlqfv..."
-  user_id              = "ocid1.user.oc1..aaaaaaaajbvljcmjw..."
-}
+Wait for the secret to be created.
 
-oci_base_general = {
-  label_prefix = "base"
-  region       = "us-MYREGION-1"
-}
+6. Click the secret name.
 
-
-# Base 64 password
-
-Base64_Password = "bWlu..."
-
-
-# Infrastructure parameters (if you change either Compartment_name or Dynamic_Group_name update the statement accordingly in the Create Policy for the Dynamic group in main.tf)
-
-Compartment_name = "WLS_Compartment"
-Dynamic_Group_name = "WLS_Dynamic_Group"
-Policy_name = "WLS_Policy"
-Vault_name = "WLS_Vault"
-Key_name = "WLS_Key"
-```
-
-
-3. Update the terraform.tfvars file with the specific of your environment
-
-Update the following variables with the values you recorded earlier (section #2, #3, and #4)
-
-- api_fingerprint            (See section #2)
-- api_private_key_path       (See section #2)
-- api_private_key_password   (See section #2)
-- compartment_id             (use the Tenancy OCID as per section #2) Note: using the Tenancy OCID selects the root compartment in that tenancy.
-- tenancy_id                 (See section #2)           
-- user_id                    (See section #2)
-
-- region (see note below)
----
-
-**Note:** To confirm your home region: Open the Console, open the Region menu, and then click Manage Regions.
-A list of the regions offered by Oracle Cloud Infrastructure is displayed. Select your **home region code** e.g. us-ashburn-1, us-phoenix-1.
+Copy the secret's OCID.
 
 ---
 
-- Base64_Password            (See section #3)
+**Note:** Keep a record of the secret's OCID for later use in the lab.
 
-4. Save terraform.tfvars
-
+---
 
 
 # 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
