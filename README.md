@@ -77,21 +77,25 @@ In your Cloud Shell window, type / paste the following comand:
 
 ![alt text](images/image040.png)
 
-3. Select your Compartment, if not already selected and Click Create Vault.For Name, enter WebLogicOCIVault and Click Create.
+3. Select your Compartment, if not already selected and Click Create Vault. 
+
+4. For Name, enter WebLogicOCIVault
+
+5. Click Create.
 
 ![alt text](images/image040.png)
 
 Wait for the vault to be created.
 
-7. Click the new vault.
+6. Click the new vault.
 
-8. Click Master Encryption Keys, and then click Create Key. 
+7. Click Master Encryption Keys, and then click Create Key. 
 
 ![alt text](images/image040.png)
 
-9. For Name, enter WebLogicOCIKey.
+8. For Name, enter WebLogicOCIKey.
 
-10. Then, click Create Key.
+9. Then, click Create Key.
 
 Wait for the key to be created and enabled before you create a secret.
 
