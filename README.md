@@ -1,9 +1,20 @@
 # WebLogic-Cloud-Workshop
 Provisioning a Weblogic domain with WebLogic Cloud from OCI Marketplace
 
-# 0. Prerequisites
+# 0. Prerequisites - What do you need?
 
-- [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of January, 2020).
+- An [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cloud-infrastructure) enabled account. The tutorial has been tested using [Trial account](https://myservices.us.oraclecloud.com/mycloud/signup) (as of July 2020).
+
+You must be an Oracle Cloud Infrastructure administrator. If you are not an administrator, you must be able to create dynamic groups and policies, and view tenancies in your tenancy. You must be able to create stacks, compute instances, networks (optional), and load balancers (optional) in the selected compartment. If you intend to create a domain that includes the Java Required Files (JRF) components, you must have database listing access in the compartment that contains your database.
+
+- An Oracle Cloud Infrastructure compartment. In order to **create** a Compartment see [Managing Compartments](https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=oci_compartments).
+
+- An Oracle Cloud Infrastructure policy that enables you to work with or create these resources in the selected compartment (if you're not an administrator):
+    - Marketplace applications
+    - Resource Manager stacks and jobs
+    - Vaults, keys, and secrets
+    - Compute instances, networks, and load balancers
+See [Common Policies](https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=oci_policies). For a sample policy, download the [text](https://docs.oracle.com/en/cloud/paas/weblogic-cloud/tutorial-get-started/files/weblogic-cloud-policy.txt) file.
 
 # 1. Cloud Shell
 
@@ -33,47 +44,9 @@ You can use the icons in the upper right corner of the Cloud Shell window to min
 
 ---
 
-# 2. Required Keys and OCIDs
 
-Execute the following 3 steps as per [Required Keys and OCIDs](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm):
 
-1. Create a user in IAM for the person or system who will be calling the API, and put that user in at least one IAM group with any desired permissions. See Adding Users. **You can skip this step if you want to run this lab as the user you are currently logged in.**
-
-2. Generate an API signing key and Record of the following items for later use in the lab:
-
-  * RSA key pair in PEM format (minimum 2048 bits)
-  * Private key passphrase
-  * Path to the private key: /Your_directory/.oci/oci_api_key.pem
-  * Fingerprint of the public key.
-  * Tenancy's OCID and user's OCID.
-
-3. Upload PEM the public key from the key pair in the Console
-
----
-
-**Note:** Did you keep a record of the following? **RSA key pair in PEM format**, **Private key passphrase**, **Path of the private key on your desktop**, **Fingerptint of the public key**, **Tenancy's OCID**, and **user's OCID** for later use in this lab.
-
----
-
-# 3. Encode the WebLogic administrator password in base64 format
-
-1. Choose a password (minimum password length of 8 characters, of which one is non-alphabetic)
-
-2. Encode the password in base64 format
-
-  In your CloudShell window, use the following command:
-
-```
-$ echo -n 'Your_Password' | base64
-```
-
----
-
-**Note:** Keep a record of the output of the above **'echo -n 'Your_Password' | base64'** command for later use in this lab.
-
----
-
-# 4. Create an SSH Key 
+# 2. Create an SSH Key 
 
 Create a secure shell (SSH) key pair so that you can access the compute instances in your Oracle WebLogic Server domains.
 
@@ -93,17 +66,32 @@ $ cat mykey.pub
 
 ---
 
-# 5. Download the terraform configuration files from this git repository
+# 3. Create a Vault and a Key
 
 In your Cloud Shell window, type / paste the following comand:
 
-```
 
-bash <(curl -s https://raw.githubusercontent.com/StephaneMoriceau/WebLogic-Cloud-Workshop/master/terraform/download.sh)
+1. Sign in to the Oracle Cloud Infrastructure console.
 
-```
+2. Click the navigation menu Menu icon, under Governance and Administration, select Security, and then click Vault.
 
-# 6. Update the terraform configuration file with the specifics of your environment
+
+
+3. Select your Compartment, if not already selected.
+
+
+Click Create Vault.
+For Name, enter WebLogicOCIVault.
+Click Create.
+Wait for the vault to be created.
+
+Click the new vault.
+Click Master Encryption Keys, and then click Create Key.
+For Name, enter WebLogicOCIKey.
+Click Create Key.
+Wait for the key to be created and enabled before you create a secret.
+
+# 6. Create a Secret for Your WebLogic Password
 
 1. Copy the terraform configuration variables example file
 
@@ -173,57 +161,6 @@ A list of the regions offered by Oracle Cloud Infrastructure is displayed. Selec
 
 4. Save terraform.tfvars
 
-
-# 7. Create the required infrasture to provision a Domain in WebLogic Cloud from the OCI Marketplace
-
-Execute the following steps in your CloudShell window.
-
-1. Initialize Terraform:
-
-```
-$ terraform init
-```
-
-2. View what Terraform plans do before actually doing it:
-
-```
-$ terraform plan
-```
-
-3. Use Terraform to Provision resources:
-
-```
-$ terraform apply
-```
-
-The result has to be similar:
-
-```
-oci_kms_key.WLS_Key: Still creating... [1m10s elapsed]
-oci_kms_key.WLS_Key: Still creating... [1m20s elapsed]
-oci_kms_key.WLS_Key: Still creating... [1m30s elapsed]
-oci_kms_key.WLS_Key: Creation complete after 1m39s [id=ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
-oci_kms_encrypted_data.WLS_Encrypted_Data: Creating...
-oci_kms_encrypted_data.WLS_Encrypted_Data: Creation complete after 2s [id=]
-
-Apply complete! Resources: 3 added, 0 changed, 2 destroyed.
-
-Outputs:
-
-Encrypted_data = IcsoJqtmC[..........]WJcMcUgAAAAA=
-cryptographic_endpoint = https://a5[..........]w-crypto.kms.us-phoenix-1.oraclecloud.com
-key_OCID = ocid1.key.oc1.phx.a5pc75peaafqw.abyhqlj[..........]f5tskaoaa
-
-```
-
----
-
-**Note:** Keep a record of the values of the following variables for later use in the lab:
-- **Encrypted_data**
-- **cryptographic_endpoint**
-- **key_OCI**
-
----
 
 
 # 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
