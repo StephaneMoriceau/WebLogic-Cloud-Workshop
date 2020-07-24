@@ -236,40 +236,32 @@ The managed servers will be members of a cluster, unless you selected WebLogic S
 
 31. Do **NOT** select **Enable authentification using Identity Cloud Service**
 
-![alt text](images/image074.png)
-
-32. Database Strategy: keep the default **No Database**
-
-33. Key Management Service Key ID: **Enter the value of key_OCID in the output of the terraform apply command that you run in section #7**
-
-34. Key Management Service Endpoint: **Enter the value of crypographic_endpoint in the output of the terraform apply command that you run in section #7**
-
-35. At the bottom of the Configure Variables page, click **Next**
+32. At the bottom of the Configure Variables page, click **Next**
 
 You are now ready to create the stack.
 
-37. Review the Stack configuration and Click **Create**
+33. Review the Stack configuration and Click **Create**
 
 
 ![alt text](images/image075.png)
 
 
-38. A Stack Job is being run and our WLS Server is being provisioned
+34. A Stack Job is being run and our WLS Server is being provisioned
 
 ![alt text](images/image180.png)
 
 
-39. While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
+35. While all resources being created we can check the Job Logs; it helps fixing potentially configuration errors if the provisioning fails
 
 ![alt text](images/image190.png)
 
 
-40. After a while (~ 15 minutes), the Job should complete with success
+36. After a while (~ 15 minutes), the Job should complete with success
 
 ![alt text](images/image200.png)
 
 
-41. We can check the Outputs section of Job Resources and check for two important values:
+37. We can check the Outputs section of Job Resources and check for two important values:
 
 - Sample Application URL
 - WebLogic Server Administration Console
@@ -277,34 +269,34 @@ You are now ready to create the stack.
 ![alt text](images/image210.png)
 
 
-42. Let's check the WLS admin console of the newly created WebLogic Server
+38. Let's check the WLS admin console of the newly created WebLogic Server
 
 - As we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated.
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server Administration Console**
-- Login with weblogic username (weblogic) and the **plain text password** you selected in section #3
+- Login with weblogic username (weblogic) and the **plain text password** you selected in section #4
 
 ![alt text](images/image220.png)
 
 
-43. We can see that our domain has one admin server and two managed servers:
+39. We can see that our domain has one admin server and two managed servers:
 
 ![alt text](images/image230.png)
 
 
-44. Let's check the WLS sample-app deployed in the newly created WebLogic Server
+40. Let's check the WLS sample-app deployed in the newly created WebLogic Server
 
 - In a new browser window, enter the **URL** as displayed in **WebLogic Server sample application**
 
 ![alt text](images/image235.png)
 
-45. We can check the Compute Instances to see what has been provisioned 
+41. We can check the Compute Instances to see what has been provisioned 
 
 From ![alt text](images/main_menu_icon.png) choose Core Infrastructure -> Compute -> Instances:
 
 ![alt text](images/image240.png)
 
 
-46. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
+42. We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
 
 ![alt text](images/image250.png)
 
