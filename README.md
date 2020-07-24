@@ -99,11 +99,11 @@ Wait for the vault to be created.
 
 Wait for the key to be created and enabled before you create a secret.
 
-# 6. Create a Secret for Your WebLogic Password
+# 4. Create a Secret for Your WebLogic Password
 
 1. In the vault, click Secrets, and then click Create Secret.
 
-![alt text](images/image040.png)
+![alt text](images/image013.png)
 
 2. For Name, enter WebLogicAdminSecret.
 
@@ -127,7 +127,7 @@ Copy the secret's OCID.
 ---
 
 
-# 8. Provision a Domain in WebLogic Cloud from the OCI Markeplace
+# 5. Provision a Domain in WebLogic Cloud from the OCI Markeplace
 
 **Launch a Stack**
 
