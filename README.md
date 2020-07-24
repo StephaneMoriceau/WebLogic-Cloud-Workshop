@@ -75,7 +75,7 @@ In your Cloud Shell window, type / paste the following comand:
 
 2. Click the ![alt text](images/main_menu_icon.png) Navigation Menu icon and under Governance and Administration, select Security, and then click Vault.
 
-![alt text](images/image040.png)
+![alt text](images/image010.png)
 
 3. Select your Compartment, if not already selected and Click Create Vault. 
 
@@ -83,7 +83,7 @@ In your Cloud Shell window, type / paste the following comand:
 
 5. Click Create.
 
-![alt text](images/image040.png)
+![alt text](images/image011.png)
 
 Wait for the vault to be created.
 
@@ -91,7 +91,7 @@ Wait for the vault to be created.
 
 7. Click Master Encryption Keys, and then click Create Key. 
 
-![alt text](images/image040.png)
+![alt text](images/image012.png)
 
 8. For Name, enter WebLogicOCIKey.
 
