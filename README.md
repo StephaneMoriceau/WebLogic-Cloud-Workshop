@@ -276,7 +276,7 @@ You are now ready to create the stack.
 **Note:** 
 When you create a domain with a load balancer, Oracle WebLogic Server for Oracle Cloud Infrastructure now creates a load balancer that always uses Secure Socket Layer (SSL). Previously you had to select a checkbox in the Create Stack wizard if you wanted the load balancer to use SSL and listen on an HTTPS port.
 
-Now during load balancer provisioning, Oracle WebLogic Server for Oracle Cloud Infrastructure adds a demonstration self-signed certificate to configure the HTTPS listener. After the domain is provisioned, we recommend you upload your own SSL certificate obtained from a Certificate Authority (CA), and associate the HTTPS listener with your certificate. See [Add a Certificate] (https://docs.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/new&id=WLCUG-GUID-3F23BD25-DBC0-4EB0-808C-71A220F3DFEB) to the Load Balancer in Using Oracle WebLogic Server for Oracle Cloud Infrastructure.
+Now during load balancer provisioning, Oracle WebLogic Server for Oracle Cloud Infrastructure adds a demonstration self-signed certificate to configure the HTTPS listener. After the domain is provisioned, we recommend you upload your own SSL certificate obtained from a Certificate Authority (CA), and associate the HTTPS listener with your certificate. See [Add a Certificate](https://docs.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/weblogic-cloud/new&id=WLCUG-GUID-3F23BD25-DBC0-4EB0-808C-71A220F3DFEB) to the Load Balancer in Using Oracle WebLogic Server for Oracle Cloud Infrastructure.
 
 ---
 
